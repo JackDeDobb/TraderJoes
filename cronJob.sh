@@ -1,3 +1,4 @@
 #!/bin/bash
 
-git -C ~/public_html/Project/TraderJoes/ pull
+cd ~/public_html/Project/TraderJoes
+git pull
