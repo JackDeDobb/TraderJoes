@@ -11,6 +11,9 @@ if ($conn->connect_error) {
 
 
 
+$sql = "DROP TABLE IF EXISTS User";
+
+
 $sql = "CREATE TABLE User (
 username VARCHAR(30) PRIMARY KEY,
 name     VARCHAR(30) NOT NULL
