@@ -24,23 +24,6 @@ if ($conn->query($sql) === TRUE) {
 }
 
 
-$tableName = Profile
-$sql = "CREATE TABLE $tableName (
-username      VARCHAR(30) PRIMARY KEY,
-date_created  DATE        NOT NULL,
-password      VARCHAR(30) NOT NULL,
-age           INTEGER     NOT NULL,
-gender        BOOLEAN     NOT NULL,
-email         VARCHAR(30) NOT NULL
-)";
-if ($conn->query($sql) === TRUE) {
-    echo "Table $tableName created successfully\n";
-} else {
-    echo "Error creating table $tableName: " . $conn->error;
-}
-
-
-
 
 
 
