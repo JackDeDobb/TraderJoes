@@ -18,9 +18,9 @@ username VARCHAR(30) PRIMARY KEY,
 name     VARCHAR(30) NOT NULL
 )";
 if ($conn->query($sql) === TRUE) {
-    echo "Table $tableName created successfully\n";
+    echo "Table User created successfully\n";
 } else {
-    echo "Error creating table $tableName: " . $conn->error;
+    echo "Error creating table User: " . $conn->error;
 }
 
 
