@@ -12,7 +12,6 @@ if ($conn->connect_error) {
 
 
 
-$tableName = User
 $sql = "CREATE TABLE User (
 username VARCHAR(30) PRIMARY KEY,
 name     VARCHAR(30) NOT NULL
