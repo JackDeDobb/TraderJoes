@@ -12,15 +12,18 @@ if ($conn->connect_error) {
 
 
 
+$tableName = User
 $sql = "CREATE TABLE User (
 username VARCHAR(30) PRIMARY KEY,
 name     VARCHAR(30) NOT NULL
 )";
 if ($conn->query($sql) === TRUE) {
-    echo "Table User created successfully\n";
+    echo "Table $tableName created successfully\n";
 } else {
-    echo "Error creating table User: " . $conn->error;
+    echo "Error creating table $tableName: " . $conn->error;
 }
+
+
 
 
 
