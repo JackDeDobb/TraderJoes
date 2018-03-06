@@ -1,7 +1,6 @@
 <?php
 include 'credentials.php';
 
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -9,27 +8,20 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
-
-
-$tableName = User
-$sql = "CREATE TABLE $tableName (
-username VARCHAR(30) PRIMARY KEY,
-name     VARCHAR(30) NOT NULL
+// sql to create table
+$sql = "CREATE TABLE MyGuests (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstname VARCHAR(30) NOT NULL,
+lastname VARCHAR(30) NOT NULL,
+email VARCHAR(50),
+reg_date TIMESTAMP
 )";
+
 if ($conn->query($sql) === TRUE) {
-    echo "Table $tableName created successfully\n";
+    echo "Table MyGuests created successfully";
 } else {
-    echo "Error creating table $tableName: " . $conn->error;
+    echo "Error creating table: " . $conn->error;
 }
-
-
-
-
-
-
-
-
 
 $conn->close();
 ?>
