@@ -61,59 +61,59 @@ if ($conn->query($sql) === TRUE) {
 }
 
 
-$sql = "CREATE TABLE Overall Winners (
+$sql = "CREATE TABLE OverallWinners (
 username  VARCHAR(30) PRIMARY KEY,
 score     INTEGER     NOT NULL
 )";
 if ($conn->query($sql) === TRUE) {
-    echo "Table Overall Winners created successfully\n";
+    echo "Table OverallWinners created successfully\n";
 } else {
-    echo "Error creating table Overall Winners: " . $conn->error;
+    echo "Error creating table OverallWinners: " . $conn->error;
 }
 
 
 
-$sql = "CREATE TABLE Top Gainers (
+$sql = "CREATE TABLE TopGainers (
 username  VARCHAR(30) PRIMARY KEY,
 score     INTEGER     NOT NULL
 )";
 if ($conn->query($sql) === TRUE) {
-    echo "Table Top Gainers created successfully\n";
+    echo "Table TopGainers created successfully\n";
 } else {
-    echo "Error creating table Top Gainers: " . $conn->error;
+    echo "Error creating table TopGainers: " . $conn->error;
 }
 
 
 
-$sql = "CREATE TABLE Top Losers (
+$sql = "CREATE TABLE TopLosers (
 username  VARCHAR(30) PRIMARY KEY,
 score     INTEGER     NOT NULL
 )";
 if ($conn->query($sql) === TRUE) {
     echo "Table $tableName created successfully\n";
 } else {
-    echo "Error creating table Top Losers: " . $conn->error;
+    echo "Error creating table TopLosers: " . $conn->error;
 }
 
 
 
 
-$sql = "CREATE TABLE Personal History (
+$sql = "CREATE TABLE PersonalHistory (
 username    VARCHAR(30),
 end_of_day  DATE,
 amount      REAL   NOT NULL,
 PRIMARY KEY(username, end_of_day)
 )";
 if ($conn->query($sql) === TRUE) {
-    echo "Table Personal History created successfully\n";
+    echo "Table PersonalHistory created successfully\n";
 } else {
-    echo "Error creating table Personal History: " . $conn->error;
+    echo "Error creating table PersonalHistory: " . $conn->error;
 }
 
 
 
 
-$sql = "CREATE TABLE Player Transactions (
+$sql = "CREATE TABLE PlayerTransactions (
 username         VARCHAR(30),
 ticker_symbol    VARCHAR(3),
 time_traded      TIMESTAMP,
@@ -123,22 +123,22 @@ buy_or_sell      BOOLEAN    NOT NULL,
 PRIMARY KEY(username, ticker_symbol, time_traded)
 )";
 if ($conn->query($sql) === TRUE) {
-    echo "Table Player Transactions created successfully\n";
+    echo "Table PlayerTransactions created successfully\n";
 } else {
-    echo "Error creating table Player Transactions: " . $conn->error;
+    echo "Error creating table PlayerTransactions: " . $conn->error;
 }
 
 
 
 
-$sql = "CREATE TABLE Player Assets (
+$sql = "CREATE TABLE PlayerAssets (
 username    VARCHAR(30)  PRIMARY KEY,
 cash        REAL         NOT NULL
 )";
 if ($conn->query($sql) === TRUE) {
-    echo "Table Player Assets created successfully\n";
+    echo "Table PlayerAssets created successfully\n";
 } else {
-    echo "Error creating table Player Assets: " . $conn->error;
+    echo "Error creating table PlayerAssets: " . $conn->error;
 }
 
 
