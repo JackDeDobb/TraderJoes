@@ -11,7 +11,16 @@ if ($conn->connect_error) {
 
 
 
-$sql = "DROP TABLE IF EXISTS User";
+$sql = "DROP TABLE IF EXISTS Users, Profile";
+if ($conn->query($sql) === TRUE) {
+    echo "Previous Tables Deleted\n";
+} else {
+    echo "Unable to Delete Previous Tables" . $conn->error;
+}
+
+
+
+
 
 
 $sql = "CREATE TABLE User (
