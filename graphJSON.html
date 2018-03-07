@@ -26,16 +26,30 @@
         chart.draw(data, options);
       }
 
+      // example function for getting json and sending info to sever
       function printData(){
-        //console.log($("#myText").val());
-        var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+$("#myText").val().toUpperCase()+'&interval=15min&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
+        var symbol = $("#myText").val();
+        var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+symbol.toUpperCase()+'&interval=15min&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
         $.getJSON(param, function(data) {
             console.log(data);
         });
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function(){
+          //function for the front end
+          //this code will be executed when servers sends back response
+          //call this.responseText to get the response from server
+          $("#retData").innerHTML = this.responseText;
+          // above text sets returned data in HTML, good test to see php working
+        };
+
+        // need to write a script called processInput.php that takes the input
+        // and processes it
+        xmlhttp.open("GET", "processInput.php?q=" + symbol, true);
+        xmlhttp.send();
       }
-
-
     </script>
+
   </head>
   <body>
     <div id="curve_chart" style="width: 900px; height: 500px"></div>
@@ -46,6 +60,7 @@
        <input type="text" id="myText" />
      </p>
      <input type="button" value="Submit" onclick="printData()">
+     <p>Response from server: <span id="retData"></span></p>
    </form>
   </body>
 </html>
