@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2004',  1000,      400],
+          ['2005',  1170,      460],
+          ['2006',  660,       1120],
+          ['2007',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+
+      function printData(){
+        //console.log($("#myText").val());
+        var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+$("#myText").val().toUpperCase()+'&interval=15min&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
+        $.getJSON(param, function(data) {
+            console.log(data);
+        });
+      }
+
+
+    </script>
+  </head>
+  <body>
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+    <form>
+     <legend>Input Ticker Symbol</legend>
+     <p>
+       <label>Type Ticker Symbol</label>
+       <input type="text" id="myText" />
+     </p>
+     <input type="button" value="Submit" onclick="printData()">
+   </form>
+  </body>
+</html>
