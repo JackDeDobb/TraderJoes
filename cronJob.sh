@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd ~/public_html/Project/TraderJoes
+cd ~/public_html
 git pull
