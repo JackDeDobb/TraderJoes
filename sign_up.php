@@ -9,7 +9,7 @@ print $pass;
 print $email;
 
 
-echo "Failed to connect to MySQL: (" $q;
+echo "Failed to connect to MySQL: (" $user;
 
 
 ?>
