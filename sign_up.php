@@ -2,8 +2,8 @@
 
 
 
-$q = $_GET["q"];
-$attr = $_GET["attr"];
+$attr = $_GET["username"];
+
 
 
 echo "Failed to connect to MySQL: (" $attr;
