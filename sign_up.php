@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 }
 
 
-$sql = "SELECT 1 FROM table WHERE key = $user;";
+$sql = "SELECT count(1) FROM table WHERE key = $user;";
 if ($conn->query($sql) === 0) {
     echo "Beginning to Create User\n";
 } else {
