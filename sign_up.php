@@ -1,9 +1,11 @@
 <?php
 
+$user = $_GET["username"];
+$pass = $_GET["password"];
+$email = $_GET["email"];
 
-$q = $_GET["email"];
-
-echo "Failed to connect to MySQL: (" $q;
-
+print $user;
+print $pass;
+print $email;
 
 ?>
