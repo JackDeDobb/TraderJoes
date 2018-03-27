@@ -1,8 +1,12 @@
-<html>
-<body>
+<?php
 
 
-Your email address is: <?php echo $_POST["Email"]; ?>
 
-</body>
-</html>
+$q = $_GET["q"];
+$attr = $_GET["attr"];
+
+
+
+
+
+?>
