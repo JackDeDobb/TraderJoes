@@ -2,8 +2,8 @@
 
 
 
-$q = $_GET["q"];
-$attr = $_GET["attr"];
+$q = $_GET["Email"];
+
 
 
 
