@@ -8,8 +8,4 @@ print $user;
 print $pass;
 print $email;
 
-
-echo "Failed to connect to MySQL: (" $user;
-
-
 ?>
