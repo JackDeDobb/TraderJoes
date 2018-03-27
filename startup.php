@@ -13,8 +13,11 @@ if ($conn->connect_error) {
 
 $sql = "DROP TABLE IF EXISTS User, Profile, Game, Leaderboard, OverallWinners,
 TopGainers, TopLosers, PersonalHistory, PlayerTransactions, PlayerAssets, Stocks";
-$conn->query($sql)
-
+if ($conn->query($sql) === TRUE) {
+    echo "Previous Tables Deleted\n";
+} else {
+    echo "Unable to Delete Previous Tables" . $conn->error;
+}
 
 
 
