@@ -2,7 +2,7 @@
 
 
 
-$attr = $_GET["username"];
+$attr = $_GET["q"];
 
 
 
