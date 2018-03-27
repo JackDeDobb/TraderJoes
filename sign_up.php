@@ -18,13 +18,12 @@ if ($conn->connect_error) {
 
 
 $sql = "SELECT count(1) FROM table WHERE key = $user;";
-if ($conn->query($sql) === 0) {
-    echo "Beginning to Create User\n";
-} else {
+if ($conn->query($sql) == 1) {
     echo "User already exists";
     return;
 }
 
+echo "Beginning to create user."
 
 
 
