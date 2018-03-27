@@ -1,7 +1,7 @@
 <?php
 
 
-
+echo "Hello world!";
 
 
 
