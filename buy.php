@@ -13,26 +13,15 @@ $quantity = 1;
 
 
 
-
-
 $sql = "SELECT * FROM Stocks WHERE username = '$user' AND ticker_symbol = '$symbol'";
 $result = $conn->query($sql);
+
+
 if ($result->num_rows > 0) {
-  echo "1 results";
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-    }
+  $sql = "UPDATE Stocks SET quantity_stocks = quantity_stocks + '$quantity', total_investment = total_investment + '$price' WHERE username = '$user' AND ticker_symbol = '$symbol'";
 } else {
-    echo "0 results";
+  $sql = "INSERT INTO Stocks VALUES ('$user', '$symbol', '$quantity' , '$price')";
 }
-
-$sql = "INSERT INTO Stocks VALUES ('$user', '$symbol', '$quantity' , '$price')";
-		/*ON DUPLICATE KEY UPDATE
-		Stocks.quantity_stocks = Stocks.quantity_stocks + VALUES(quantity_stocks),
-		Stocks.prev_money_made = Stocks.prev_money_made + VALUES(prev_money_made)**/
-
-
 
 
 
