@@ -1,6 +1,11 @@
 <?php
 include 'credentials.php';
 
+session_start();
+
+
+
+
 $user = $_GET["username"];
 $pass = $_GET["password"];
 $email = $_GET["email"];
@@ -17,10 +22,10 @@ $sql = "INSERT INTO Profile VALUES ('$user', CURDATE(), '$age', '$gender', '$ema
 $sql = "INSERT INTO Game VALUES ('$user', CURRENT_TIMESTAMP)"; $conn->query($sql);
 $sql = "INSERT INTO PlayerAssets VALUES ('$user', 5000)"; $conn->query($sql);
 
-
+//session_register("user");
+$_SESSION['login_user'] = $user;
 
 echo "Successfully created user.";
-
 
 
 
