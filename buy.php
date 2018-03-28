@@ -10,11 +10,11 @@ include 'credentials.php';
 
 // $array = json_decode($result, true);
 //$price = $array["Stock Quotes"]["0"]["2. price"];
-print "Started"
+print "Started";
 $user = $_SESSION['login_user'];
 $price = 100;
 $quantity = 2;
-print $user
+print $user;
 
 // print "<h2>Response from server: {$price}</h2>";
 
@@ -22,6 +22,6 @@ $sql = "INSERT INTO Stocks VALUES ('$user', '$q', '$quantity' , '$price')
 		/*ON DUPLICATE KEY UPDATE 
 		Stocks.quantity_stocks = Stocks.quantity_stocks + VALUES(quantity_stocks),
 		Stocks.prev_money_made = Stocks.prev_money_made + VALUES(prev_money_made)**/"; $conn->query($sql);
-print "Ended"
+print "Ended";
 
 ?>
