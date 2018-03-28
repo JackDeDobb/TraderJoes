@@ -12,6 +12,11 @@ $user = $_SESSION['login_user'];
 $quantity = 1;
 
 
+$sql = "SELECT count(1) FROM Stocks WHERE username = $user AND ticker_symbol = $symbol";
+$result = $conn->query($sql);
+print $result;
+
+
 
 $sql = "SELECT * FROM Stocks WHERE username = $user AND ticker_symbol = $symbol";
 $result = $conn->query($sql);
