@@ -25,7 +25,7 @@ if ($conn->connect_error) {
 $sql = "INSERT INTO User(username, name, password) VALUES ('yes', 'ok', 'no')";
 $conn->query($sql);
 
-$result = $conn->query($sql = "SELECT username FROM User(username, name, password) WHERE User.username = 'yes';");
+$result = $conn->query($sql = "SELECT username FROM User(username, name, password) WHERE User.username = 'yes'");
 
 echo $result->num_rows;
 
