@@ -62,29 +62,13 @@
       }
 
 			function displayPrice(){
-				var symbol = $("#demo-name").val().toUpperCase();
-				var price;
-				var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol+"&apikey=S4TYOA5YDZJBLT1K";
+				var symbol = $("#demo-name").val();
+				var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol.toUpperCase()+"&apikey=S4TYOA5YDZJBLT1K";
 				$.getJSON(url, function(data) {
             //console.log(data);
 						//$("#currPrice").innerHTML = "Current Price: " + data["Stock Quotes"]["0"]["2. price"];
 						$("#currPrice").text("Current Price: $" + data["Stock Quotes"]["0"]["2. price"]);
-						price = data["Stock Quotes"]["0"]["2. price"];
         });
-
-				var xmlhttp = new XMLHttpRequest();
-				xmlhttp.onreadystatechange = function(){
-					//function for the front end
-					//this code will be executed when servers sends back response
-					//call this.responseText to get the response from server
-					$("#test").text(Success);
-					// above text sets returned data in HTML, good test to see php working
-				};
-
-				// need to write a script called processInput.php that takes the input
-				// and processes it
-				xmlhttp.open("GET", "buy.php?q=" + symbol, true);
-				xmlhttp.send();
 			}
     </script>
 	</head>
@@ -129,7 +113,7 @@
               </ul>
             </div>
 
-						<form action="javascript:displayPrice()" method="get">
+						<form action="buy.php" method="get">
 	            <div class="3u 12u$(small)">
 	              <ul class="actions vertical small">
 
@@ -158,7 +142,7 @@
 
 				<h2 id="currPrice">Current Price: </h2>
 
-				<h2 id="test">Failure</h2>
+
 
     </body>
 
