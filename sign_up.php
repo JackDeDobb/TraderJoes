@@ -23,7 +23,7 @@ if ($conn->query($sql) == 1) {
     return;
 }
 
-echo "Beginning to create user.";
+echo "Beginning to create user. slight change";
 
 
 
