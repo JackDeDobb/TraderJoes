@@ -20,7 +20,7 @@ print $result
 $sql = "INSERT INTO Stocks VALUES ('$user', '$symbol', '$quantity' , '$price')";
 		/*ON DUPLICATE KEY UPDATE
 		Stocks.quantity_stocks = Stocks.quantity_stocks + VALUES(quantity_stocks),
-		Stocks.prev_money_made = Stocks.prev_money_made + VALUES(prev_money_made)**/";
+		Stocks.prev_money_made = Stocks.prev_money_made + VALUES(prev_money_made)**/
 
 
 
