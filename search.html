@@ -72,20 +72,22 @@
 						price = data["Stock Quotes"]["0"]["2. price"];
         });
 
-				var xmlhttp = new XMLHttpRequest();
-				xmlhttp.onreadystatechange = function(){
-					//function for the front end
-					//this code will be executed when servers sends back response
-					//call this.responseText to get the response from server
-					console.log("Hi we here");
-					$("#test").text(Success);
-					// above text sets returned data in HTML, good test to see php working
-				};
+				window.location.href = "mocktrading.web.engr.illinois.edu/buy.php?q=" + symbol;
 
-				// need to write a script called processInput.php that takes the input
-				// and processes it
-				xmlhttp.open("GET", "mocktrading.web.engr.illinois.edu/buy.php?q=" + symbol, true);
-				xmlhttp.send();
+				// var xmlhttp = new XMLHttpRequest();
+				// xmlhttp.onreadystatechange = function(){
+				// 	//function for the front end
+				// 	//this code will be executed when servers sends back response
+				// 	//call this.responseText to get the response from server
+				// 	console.log("Hi we here");
+				// 	$("#test").text(Success);
+				// 	// above text sets returned data in HTML, good test to see php working
+				// };
+				//
+				// // need to write a script called processInput.php that takes the input
+				// // and processes it
+				// xmlhttp.open("GET", "mocktrading.web.engr.illinois.edu/buy.php?q=" + symbol, true);
+				// xmlhttp.send();
 			}
     </script>
 	</head>
