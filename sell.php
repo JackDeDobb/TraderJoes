@@ -23,7 +23,11 @@ $result = $conn->query($sql);
 
 //Update the Stocks Table
 $row = $result->fetch_assoc();
-if ($row["quantity_stocks"] > 1) {
+if($row == false){
+  echo "First buy " . $symbol . " to sell it!";
+  return;
+}
+else if ($row["quantity_stocks"] > 1) {
   $sql = "UPDATE Stocks SET quantity_stocks = quantity_stocks - '$quantity', total_investment = total_investment - '$price' WHERE username = '$user' AND ticker_symbol = '$symbol'";
 } else { //here we assume that the stock is equal to one then
   $sql = "DELETE FROM Stocks WHERE username = '$user' AND ticker_symbol = '$symbol'";
