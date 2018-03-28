@@ -17,7 +17,7 @@ $quantity = 2;
 
 // print "<h2>Response from server: {$price}</h2>";
 
-$sql = "UPDATE Stocks SET quantity_stocks = quantity_stocks - '$quantity', prev_money_made = prev_money_made - $price WHERE ticker_symbol = '$q'"; 
+$sql = "UPDATE Stocks SET quantity_stocks = quantity_stocks - '$quantity', total_investment = total_investment - $price WHERE ticker_symbol = '$q'"; 
 $conn->query($sql);
 
 ?>
