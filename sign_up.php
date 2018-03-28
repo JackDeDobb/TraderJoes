@@ -1,7 +1,7 @@
 <?php
 include 'credentials.php';
 
-$user = mysql_real_escape_string($_GET["username"]);
+$user = $_GET["username"];
 $pass = $_GET["password"];
 $email = $_GET["email"];
 
