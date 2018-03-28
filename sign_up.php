@@ -27,8 +27,6 @@ $_SESSION['login_user'] = $user;
 
 echo "Successfully created user.";
 
-echo($_SESSION['login_user']);
-
 
 
 
