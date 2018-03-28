@@ -89,7 +89,7 @@
           <div class="6u 12u$(xsmall)">
             <input type="text" name="symbol" id="demo-name" value="" placeholder="Ticker Symbol" />
           </div>
-
+			</form>
 
 
 
@@ -98,30 +98,37 @@
             <div class="3u 12u$(small)">
               <ul class="actions vertical">
 
-                <li><a href="#" class="button alt">Buy</a></li>
+                <li><a href="#" class="button alt"></a></li>
               </ul>
             </div>
+
+						<form action="buy.php" method="get">
+	            <div class="3u 12u$(small)">
+	              <ul class="actions vertical small">
+
+									<input type = "submit" value = "Buy">
+
+	              </ul>
+	            </div>
+						</form>
+
+						<form action="sell.php" method="get">
             <div class="3u 12u$(small)">
               <ul class="actions vertical small">
-
-                <li><a href="#" class="button small">Buy</a></li>
-
+								<input type = "submit" value = "Sell">
               </ul>
             </div>
-            <div class="3u 12u$(small)">
-              <ul class="actions vertical">
-                <li><a href="#" class="button fit">Sell</a></li>
+					</form>
 
-              </ul>
-            </div>
-            <div class="3u$ 12u$(small)">
-              <ul class="actions vertical small">
-                <li><a href="#" class="button small fit">History</a></li>
-              </ul>
-            </div>
+          <div class="3u$ 12u$(small)">
+            <ul class="actions vertical small">
+              <li><a href="portfolio.html" class="button small fit">History</a></li>
+            </ul>
+          </div>
+
           </div>
         </div>
-      </form>
+
 
 
     </body>
