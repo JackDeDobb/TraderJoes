@@ -5,26 +5,22 @@ $user = $_GET["username"];
 $pass = $_GET["password"];
 $email = $_GET["email"];
 
-print $user;
-print $pass;
-print $email;
 
-
-
-
-// $sql = "SELECT username FROM Profile WHERE Profile.username = '$user';";
-// $result = $conn->query($sql);
-// echo(mysql_fetch_object($result));
-
-
-$sql = "INSERT INTO User(username, name, password) VALUES ('$user', 'ok', 'no')";
-$conn->query($sql);
-
+//HERE INSERT CHECKS TO SEE IF THE USER ALREADY EXISTS FIRST
 
 
 
 
 echo "Beginning to create user.";
+$sql = "INSERT INTO User VALUES ('$user', '$name', '$pass')"; $conn->query($sql);
+$sql = "INSERT INTO Profile VALUES ('$user', NOW(), '$age', '$gender', '$email')"; $conn->query($sql);
+$sql = "INSERT INTO Game VALUES ('$user', CURRENT_TIMESTAMP)"; $conn->query($sql);
+$sql = "INSERT INTO PlayerAssets VALUES ('$user', 5000)"; $conn->query($sql);
+
+
+
+echo "Successfully created user.";
+
 
 
 

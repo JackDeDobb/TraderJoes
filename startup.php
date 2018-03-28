@@ -31,7 +31,6 @@ if ($conn->query($sql) === TRUE) {
 $sql = "CREATE TABLE Profile (
 username      VARCHAR(30) PRIMARY KEY,
 date_created  DATE        NOT NULL,
-password      VARCHAR(30) NOT NULL,
 age           INTEGER     NOT NULL,
 gender        BOOLEAN     NOT NULL,
 email         VARCHAR(30) NOT NULL
