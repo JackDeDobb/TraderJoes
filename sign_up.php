@@ -17,7 +17,7 @@ if ($conn->connect_error) {
 }
 
 
-$sql = "SELECT count(1) FROM Profile WHERE username = $user;";
+$sql = "SELECT count(1) FROM Profile WHERE Profile.username = $user;";
 if ($conn->query($sql) == 1) {
     echo "User already exists";
     return;
