@@ -17,13 +17,18 @@ if ($conn->connect_error) {
 }
 
 
-$sql = "SELECT count(1) FROM Profile WHERE Profile.username = $user;";
-if ($conn->query($sql) == 1) {
-    echo "User already exists";
-    return;
-}
+$sql = "SELECT username FROM Profile WHERE Profile.username = $user;";
+echo($conn->query($sql));
 
-echo "Beginning to create user.";
+
+
+// $sql = "SELECT count(1) FROM Profile WHERE Profile.username = $user;";
+// if ($conn->query($sql) == 1) {
+//     echo "User already exists";
+//     return;
+// }
+//
+// echo "Beginning to create user.";
 
 
 
