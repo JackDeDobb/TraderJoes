@@ -12,20 +12,18 @@ $user = $_SESSION['login_user'];
 $quantity = 1;
 
 
-$sql = "SELECT count(1) FROM Stocks WHERE username = $user AND ticker_symbol = $symbol";
-$result = $conn->query($sql);
-print $result;
+$sql = "IF EXISTS(
+  SELECT *
+  FROM Stocks
+  WHERE username = $user AND ticker_symbol = $symbol)
+  {UPDATE Stocks SET quantity_stocks = quantity_stocks + 1, total_investment = total_investment + $price WHERE username = $user AND ticker_symbol = $symbol}
+  [ELSE
+  {INSERT INTO Stocks VALUES ('$user', '$symbol', '$quantity' , '$price')}]";
 
 
 
-$sql = "SELECT * FROM Stocks WHERE username = $user AND ticker_symbol = $symbol";
-$result = $conn->query($sql);
-print $result;
 
-$sql = "INSERT INTO Stocks VALUES ('$user', '$symbol', '$quantity' , '$price')";
-		/*ON DUPLICATE KEY UPDATE
-		Stocks.quantity_stocks = Stocks.quantity_stocks + VALUES(quantity_stocks),
-		Stocks.prev_money_made = Stocks.prev_money_made + VALUES(prev_money_made)**/
+
 
 
 
