@@ -24,6 +24,11 @@ if ($conn->connect_error) {
 
 
 $sql = "SELECT count(1) FROM Profile WHERE Profile.username = '$user';";
+
+$result = $conn->query($sql);
+echo(mysql_fetch_object($result));
+
+
 if ($conn->query($sql) == 1) {
     echo "User already exists";
     return;
