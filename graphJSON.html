@@ -28,12 +28,17 @@
 
       // example function for getting json and sending info to sever
       function printData(){
+        // API code
         var symbol = $("#myText").val();
-        var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+symbol.toUpperCase()+'&interval=15min&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
+        var currentPrice;
+        var param = 'https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols='+symbol.toUpperCase()+'&apikey=S4TYOA5YDZJBLT1K';
         $.getJSON(param, function(data) {
             console.log(data);
+            currentPrice = data["Stock Quotes"]["0"]["2. price"];
+            console.log(currentPrice);
         });
 
+        //sending to PHP
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function(){
           //function for the front end
@@ -45,11 +50,11 @@
 
         // need to write a script called processInput.php that takes the input
         // and processes it
-        xmlhttp.open("GET", "processInput.php?q=" + symbol, true);
+        xmlhttp.open("GET", "http://mocktrading.web.engr.illinois.edu/processInput.php?q=" + symbol, true);
         xmlhttp.send();
       }
     </script>
-    
+
   </head>
   <body>
     <div id="curve_chart" style="width: 900px; height: 500px"></div>
