@@ -60,6 +60,16 @@
         xmlhttp.open("GET", "processInput.php?q=" + symbol, true);
         xmlhttp.send();
       }
+
+			function displayPrice(){
+				var symbol = $("#demo-name").val();
+				var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol.toUpperCase()+"&apikey=S4TYOA5YDZJBLT1K";
+				$.getJSON(url, function(data) {
+            //console.log(data);
+						//$("#currPrice").innerHTML = "Current Price: " + data["Stock Quotes"]["0"]["2. price"];
+						$("#currPrice").text("Current Price: $" + data["Stock Quotes"]["0"]["2. price"]);
+        });
+			}
     </script>
 	</head>
 	<body class="subpage">
@@ -85,7 +95,7 @@
 
 
 
-      <form action="processInput.php" method="get" target="_blank">
+      <form action="javascript:displayPrice()">
         <div class="row uniform">
           <div class="6u 12u$(xsmall)">
             <input type="text" name="symbol" id="demo-name" value="" placeholder="Ticker Symbol" />
@@ -129,6 +139,8 @@
 
           </div>
         </div>
+
+				<h2 id="currPrice">Current Price: </h2>
 
 
 
