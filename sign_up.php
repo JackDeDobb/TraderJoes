@@ -1,7 +1,7 @@
 <?php
 include 'credentials.php';
 
-$user = $_GET["username"];
+$user = mysql_real_escape_string($_GET["username"]);
 $pass = $_GET["password"];
 $email = $_GET["email"];
 
@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 // echo(mysql_fetch_object($result));
 
 
-$sql = "INSERT INTO User(username, name, password) VALUES ({$user}, 'ok', 'no')";
+$sql = "INSERT INTO User(username, name, password) VALUES ('$user', 'ok', 'no')";
 $conn->query($sql);
 
 
