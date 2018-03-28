@@ -13,12 +13,13 @@ $quantity = 1;
 
 
 
-$sql = "SELECT * FROM Stocks WHERE username = '$user' AND ticker_symbol = '$symbol'";
+$sql = "SELECT quantity_stocks FROM Stocks WHERE username = '$user' AND ticker_symbol = '$symbol'";
 $result = $conn->query($sql);
 
 
 //Update the Stocks Table
-if ($result->num_rows > 1) {
+$row = $result->fetch_assoc();
+if ($row["quantity_stocks"] > 1) {
   $sql = "UPDATE Stocks SET quantity_stocks = quantity_stocks - '$quantity', total_investment = total_investment - '$price' WHERE username = '$user' AND ticker_symbol = '$symbol'";
 } else { //here we assume that the stock is equal to one then
   $sql = "DELETE FROM Stocks WHERE username = '$user' AND ticker_symbol = '$symbol'";
