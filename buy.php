@@ -23,5 +23,5 @@ $sql = "INSERT INTO Stocks VALUES ('$user', '$symbol', '$quantity' , '$price')
 
 
 $conn->query($sql);
-echo($user + " has successfully bought 1 stock of " + $symbol + " for " + $price + ".");
+echo($user . " has successfully bought 1 stock of " . $symbol . " for " . $price . ".");
 ?>
