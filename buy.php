@@ -17,7 +17,15 @@ $quantity = 1;
 
 $sql = "SELECT * FROM Stocks WHERE username = $user AND ticker_symbol = $symbol";
 $result = $conn->query($sql);
-echo(mysql_num_rows($result));
+if ($result->num_rows > 0) {
+  echo "1 results";
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
 
 $sql = "INSERT INTO Stocks VALUES ('$user', '$symbol', '$quantity' , '$price')";
 		/*ON DUPLICATE KEY UPDATE
