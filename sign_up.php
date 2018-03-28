@@ -28,4 +28,5 @@ echo "Beginning to create user."
 
 
 
+$conn->close();
 ?>
