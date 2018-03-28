@@ -15,7 +15,7 @@ $quantity = 1;
 
 
 
-$sql = "SELECT * FROM Stocks WHERE username = $user AND ticker_symbol = $symbol";
+$sql = "SELECT * FROM Stocks WHERE username = '$user' AND ticker_symbol = '$symbol'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   echo "1 results";
