@@ -11,6 +11,9 @@ $result = file_get_contents($url);
 $array = json_decode($result, true);
 $price = $array["Stock Quotes"]["0"]["2. price"];
 
+echo $price;
+$price = (int)$price
+
 $sql = "INSERT INTO Stocks VALUES ('$user', '$q', 1 , '$price')"; $conn->query($sql);
 
 ?>
