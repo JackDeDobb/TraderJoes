@@ -152,7 +152,7 @@ $sql = "CREATE TABLE Stocks (
 username            VARCHAR(30),
 ticker_symbol       VARCHAR(4),
 quantity_stocks     INTEGER    NOT NULL,
-prev_money_made     REAL       NOT NULL,
+total_investment    REAL       NOT NULL,
 PRIMARY KEY(username, ticker_symbol)
 )";
 if ($conn->query($sql) === TRUE) {
