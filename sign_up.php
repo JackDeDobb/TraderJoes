@@ -27,6 +27,8 @@ $conn->query($sql);
 
 $result = $conn->query($sql = "SELECT username FROM User(username, name, password) WHERE username = '$user';");
 
+echo $result->num_rows;
+
 if ($result->num_rows > 0) {
     echo "User already exists";
     return;
