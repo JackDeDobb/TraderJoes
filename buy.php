@@ -13,14 +13,16 @@ include 'credentials.php';
 session_start();
 print "Started";
 $user = $_SESSION['login_user'];
+$q = $_SESSION['session_name'];
 $price = 100;
 $quantity = 2;
 print $user;
+print $q;
 
 // print "<h2>Response from server: {$price}</h2>";
 
 $sql = "INSERT INTO Stocks VALUES ('$user', '$q', '$quantity' , '$price')
-		/*ON DUPLICATE KEY UPDATE 
+		/*ON DUPLICATE KEY UPDATE
 		Stocks.quantity_stocks = Stocks.quantity_stocks + VALUES(quantity_stocks),
 		Stocks.prev_money_made = Stocks.prev_money_made + VALUES(prev_money_made)**/"; $conn->query($sql);
 print "Ended";
