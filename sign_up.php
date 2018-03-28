@@ -17,19 +17,19 @@ if ($conn->connect_error) {
 }
 
 
-$sql = "SELECT username FROM Profile WHERE Profile.username = $user;";
-$result = $conn->query($sql);
-echo(mysql_fetch_object($result));
+// $sql = "SELECT username FROM Profile WHERE Profile.username = '$user';";
+// $result = $conn->query($sql);
+// echo(mysql_fetch_object($result));
 
 
 
-// $sql = "SELECT count(1) FROM Profile WHERE Profile.username = $user;";
-// if ($conn->query($sql) == 1) {
-//     echo "User already exists";
-//     return;
-// }
-//
-// echo "Beginning to create user.";
+$sql = "SELECT count(1) FROM Profile WHERE Profile.username = '$user';";
+if ($conn->query($sql) == 1) {
+    echo "User already exists";
+    return;
+}
+
+echo "Beginning to create user.";
 
 
 
