@@ -69,6 +69,24 @@
 						//$("#currPrice").innerHTML = "Current Price: " + data["Stock Quotes"]["0"]["2. price"];
 						$("#currPrice").text("Current Price: $" + data["Stock Quotes"]["0"]["2. price"]);
         });
+<<<<<<< HEAD
+=======
+
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function(){
+					//function for the front end
+					//this code will be executed when servers sends back response
+					//call this.responseText to get the response from server
+					console.log("Hi we here");
+					$("#test").text(Success);
+					// above text sets returned data in HTML, good test to see php working
+				};
+
+				// need to write a script called processInput.php that takes the input
+				// and processes it
+				xmlhttp.open("GET", "mocktrading.web.engr.illinois.edu/buy.php?q=" + symbol, true);
+				xmlhttp.send();
+>>>>>>> 6846f4850c3cbe089184660e9757e96e454e977c
 			}
     </script>
 	</head>
@@ -113,7 +131,11 @@
               </ul>
             </div>
 
+<<<<<<< HEAD
 						<form action="buy.php" method="get">
+=======
+						<form action="javascript:displayPrice()">
+>>>>>>> 6846f4850c3cbe089184660e9757e96e454e977c
 	            <div class="3u 12u$(small)">
 	              <ul class="actions vertical small">
 
