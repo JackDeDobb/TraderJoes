@@ -22,17 +22,12 @@ if ($conn->connect_error) {
 // echo(mysql_fetch_object($result));
 
 
-$sql = "INSERT INTO User(username, name, password) VALUES ('yes', 'ok', 'no')";
+$sql = "INSERT INTO User(username, name, password) VALUES ({$user}, 'ok', 'no')";
 $conn->query($sql);
 
-$result = $conn->query($sql = "SELECT username FROM User(username, name, password) WHERE User.username = 'yes'");
 
-echo $result->num_rows;
 
-if ($result->num_rows > 0) {
-    echo "User already exists";
-    return;
-}
+
 
 echo "Beginning to create user.";
 
