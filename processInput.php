@@ -7,9 +7,9 @@ $q = $_GET["symbol"];
 
 echo "Hello World";
 
-$url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="
+$url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=";
 $url .= $q;
-$url .= "&apikey=S4TYOA5YDZJBLT1K"
+$url .= "&apikey=S4TYOA5YDZJBLT1K";
 $result = file_get_contents($url);
 // Will dump a beauty json :3
 var_dump(json_decode($result, true));
