@@ -25,13 +25,9 @@ if ($conn->connect_error) {
 $sql = "INSERT INTO User(username, name, password) VALUES ('yes', 'ok', 'no')";
 $conn->query($sql);
 
-$sql = "SELECT count(1) FROM Profile WHERE Profile.username = '$user';";
+$result = $conn->query($sql = "SELECT username FROM User(username, name, password) WHERE username = '$user';");
 
-$result = $conn->query($sql);
-echo(mysql_fetch_object($result));
-
-
-if ($conn->query($sql) == 1) {
+if ($result->num_rows > 0) {
     echo "User already exists";
     return;
 }
