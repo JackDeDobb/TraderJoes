@@ -12,7 +12,7 @@ $url .= $q;
 $url .= "&apikey=S4TYOA5YDZJBLT1K";
 $result = file_get_contents($url);
 // Will dump a beauty json :3
-var_dump(json_decode($result, true));
+/*var_dump(*/$array = json_decode($result, true)/*)*/;
 
 $price = $array["Stock Quotes"]["0"]["2. price"];
 
