@@ -2,7 +2,7 @@
 include 'credentials.php';
 session_start();
 $user = $_SESSION['login_user'];
-echo $user;
+//echo $user;
 
 $tableString = "";
 
@@ -40,7 +40,7 @@ echo $tableString;
 	</head>
 	<body class="subpage" onload="testTable">
 
-		 Header
+		 <!--Header-->
 		<header id="header">
 			<div class="inner">
 				<a href="https://wiki.illinois.edu/wiki/display/cs411sp18/Trader+Joe%2527s" class="logo"><strong>Trader Joe's</strong></a>
@@ -58,7 +58,7 @@ echo $tableString;
 		<!--HERE INSERT ALL CODE FOR PORTFOLIO-->
 
 
-		 Footer
+		 <!--Footer-->
 			<footer id="footer">
 				<div class="inner">
 
@@ -93,7 +93,7 @@ echo $tableString;
 				</div>
 			</footer>
 
-		 Scripts
+		 <!--Scripts-->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
