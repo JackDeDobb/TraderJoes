@@ -1,7 +1,7 @@
 <?php
 include 'credentials.php';
 
-// $q = $_GET["symbol"];
+ $symbol = $_GET["q"];
 
 // $url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=";
 // $url .= $q;
@@ -13,15 +13,15 @@ include 'credentials.php';
 session_start();
 print "Started";
 $user = $_SESSION['login_user'];
-$q = $_SESSION['session_name'];
+//$q = $_SESSION['session_name'];
 $price = 100;
 $quantity = 2;
 print $user;
-print $q;
+print $symbol;
 
 // print "<h2>Response from server: {$price}</h2>";
 
-$sql = "INSERT INTO Stocks VALUES ('$user', '$q', '$quantity' , '$price')
+$sql = "INSERT INTO Stocks VALUES ('$user', '$symbol', '$quantity' , '$price')
 		/*ON DUPLICATE KEY UPDATE
 		Stocks.quantity_stocks = Stocks.quantity_stocks + VALUES(quantity_stocks),
 		Stocks.prev_money_made = Stocks.prev_money_made + VALUES(prev_money_made)**/"; $conn->query($sql);
