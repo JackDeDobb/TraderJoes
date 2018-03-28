@@ -62,7 +62,7 @@
       }
 
 			function displayPrice(){
-				var symbol = $("#demo-name").val(),toUpperCase();
+				var symbol = $("#demo-name").val().toUpperCase();
 				var price;
 				var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol+"&apikey=S4TYOA5YDZJBLT1K";
 				$.getJSON(url, function(data) {
