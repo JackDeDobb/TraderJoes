@@ -17,14 +17,21 @@ $sql = "SELECT * FROM Stocks WHERE username = '$user' AND ticker_symbol = '$symb
 $result = $conn->query($sql);
 
 
+//Update the Stocks Table
 if ($result->num_rows > 0) {
   $sql = "UPDATE Stocks SET quantity_stocks = quantity_stocks + '$quantity', total_investment = total_investment + '$price' WHERE username = '$user' AND ticker_symbol = '$symbol'";
 } else {
   $sql = "INSERT INTO Stocks VALUES ('$user', '$symbol', '$quantity' , '$price')";
 }
-
-
-
 $conn->query($sql);
+
+//Update the PlayerAssets Table
+$totalSubtraction = $quantity * $price;
+$sql = "UPDATE PlayerAssets SET cash = cash - '$totalSubtraction' WHERE username = '$user'";
+$conn->query($sql);
+
+
+
+
 echo($user . " has successfully bought 1 stock of " . $symbol . " at " . $price . ".");
 ?>
