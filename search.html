@@ -61,14 +61,8 @@
         xmlhttp.send();
       }
 
-			function displayPrice(){
-				var symbol = $("#demo-name").val();
-				var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol.toUpperCase()+"&apikey=S4TYOA5YDZJBLT1K";
-				$.getJSON(url, function(data) {
-            //console.log(data);
-						//$("#currPrice").innerHTML = "Current Price: " + data["Stock Quotes"]["0"]["2. price"];
-						$("#currPrice").text("Current Price: $" + data["Stock Quotes"]["0"]["2. price"]);
-        });
+			function buyStock(){
+				var symbol = $("#demo-name").val().toUpperCase();
 				window.location.href = "buy.php?q=" + symbol;
 
 				// var xmlhttp = new XMLHttpRequest();
@@ -85,6 +79,21 @@
 				// // and processes it
 				// xmlhttp.open("GET", "mocktrading.web.engr.illinois.edu/buy.php?q=" + symbol, true);
 				// xmlhttp.send();
+			}
+
+			function sellStock(){
+				var symbol = $("#demo-name").val().toUpperCase();
+				window.location.href = "sell.php?q=" + symbol;
+			}
+
+			function displayPrice(){
+				var symbol = $("#demo-name").val().toUpperCase();
+				var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol+"&apikey=S4TYOA5YDZJBLT1K";
+				$.getJSON(url, function(data) {
+            //console.log(data);
+						//$("#currPrice").innerHTML = "Current Price: " + data["Stock Quotes"]["0"]["2. price"];
+						$("#currPrice").text("Current Price: $" + data["Stock Quotes"]["0"]["2. price"]);
+        });
 			}
     </script>
 	</head>
@@ -129,7 +138,7 @@
               </ul>
             </div>
 
-						<form action="javascript:displayPrice()">
+						<form action="javascript:buyStock()">
 	            <div class="3u 12u$(small)">
 	              <ul class="actions vertical small">
 
@@ -139,7 +148,7 @@
 	            </div>
 						</form>
 
-						<form action="sell.php" method="get">
+						<form action="javascript:sellStock()">
             <div class="3u 12u$(small)">
               <ul class="actions vertical small">
 								<input type = "submit" value = "Sell">
