@@ -1,6 +1,7 @@
 <?php
 include 'credentials.php';
 $user = $_SESSION['login_user'];
+echo $user;
 
 $tableString = "";
 
