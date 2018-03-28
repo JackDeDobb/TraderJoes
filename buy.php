@@ -10,6 +10,7 @@ include 'credentials.php';
 
 // $array = json_decode($result, true);
 //$price = $array["Stock Quotes"]["0"]["2. price"];
+session_start();
 print "Started";
 $user = $_SESSION['login_user'];
 $price = 100;
