@@ -62,16 +62,13 @@
       }
 
 			function displayPrice(){
-				var symbol = $("#demo-name").val().toUpperCase();
-				var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol+"&apikey=S4TYOA5YDZJBLT1K";
+				var symbol = $("#demo-name").val();
+				var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol.toUpperCase()+"&apikey=S4TYOA5YDZJBLT1K";
 				$.getJSON(url, function(data) {
             //console.log(data);
 						//$("#currPrice").innerHTML = "Current Price: " + data["Stock Quotes"]["0"]["2. price"];
 						$("#currPrice").text("Current Price: $" + data["Stock Quotes"]["0"]["2. price"]);
         });
-
-				jQuery('#div_session_write').load('session_write.php?session_name='+symbol);
-
 			}
     </script>
 	</head>
@@ -97,7 +94,7 @@
         <div id="curve_chart" style="width: 1500px; height: 500px"></div>
 
 
-			<div id="div_session_write"></div>
+
       <form action="javascript:displayPrice()">
         <div class="row uniform">
           <div class="6u 12u$(xsmall)">
