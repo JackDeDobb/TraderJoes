@@ -62,16 +62,13 @@
       }
 
 			function displayPrice(){
-				var symbol = $("#demo-name").val().toUpperCase();
-				var price;
-				var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol+"&apikey=S4TYOA5YDZJBLT1K";
+				var symbol = $("#demo-name").val();
+				var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol.toUpperCase()+"&apikey=S4TYOA5YDZJBLT1K";
 				$.getJSON(url, function(data) {
             //console.log(data);
 						//$("#currPrice").innerHTML = "Current Price: " + data["Stock Quotes"]["0"]["2. price"];
 						$("#currPrice").text("Current Price: $" + data["Stock Quotes"]["0"]["2. price"]);
-						price = data["Stock Quotes"]["0"]["2. price"];
         });
-
 				window.location.href = "mocktrading.web.engr.illinois.edu/buy.php?q=" + symbol;
 
 				// var xmlhttp = new XMLHttpRequest();
@@ -132,7 +129,11 @@
               </ul>
             </div>
 
+<<<<<<< HEAD
+						<form action="buy.php" method="get">
+=======
 						<form action="javascript:displayPrice()">
+>>>>>>> 6846f4850c3cbe089184660e9757e96e454e977c
 	            <div class="3u 12u$(small)">
 	              <ul class="actions vertical small">
 
@@ -161,7 +162,7 @@
 
 				<h2 id="currPrice">Current Price: </h2>
 
-				<h2 id="test">Failure</h2>
+
 
     </body>
 
