@@ -26,7 +26,7 @@ if ($conn->query($sql) === TRUE) {
 
 $sql = "CREATE TABLE User (
 username VARCHAR(30) PRIMARY KEY,
-name     VARCHAR(30) NOT NULL
+name     VARCHAR(30) NOT NULL,
 password VARCHAR(30) NOT NULL
 )";
 if ($conn->query($sql) === TRUE) {
