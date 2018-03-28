@@ -11,6 +11,10 @@ session_start();
 $user = $_SESSION['login_user'];
 $quantity = 1;
 
+//INSERT DATA CHECKS HERE
+
+
+
 
 
 $sql = "SELECT quantity_stocks FROM Stocks WHERE username = '$user' AND ticker_symbol = '$symbol'";
