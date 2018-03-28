@@ -5,6 +5,8 @@
 $q = $_GET["symbol"];
 //$attr = $_GET["attr"];
 
+echo "Hello Wrold";
+
 $url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="
 $url .= $q;
 $url .= "&apikey=S4TYOA5YDZJBLT1K"
