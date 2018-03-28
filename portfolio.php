@@ -55,7 +55,7 @@ echo $tableString;
 		</header>
 
 
-		HERE INSERT ALL CODE FOR PORTFOLIO
+		<!--HERE INSERT ALL CODE FOR PORTFOLIO-->
 
 
 		 Footer
