@@ -18,7 +18,8 @@ if ($conn->connect_error) {
 
 
 $sql = "SELECT username FROM Profile WHERE Profile.username = $user;";
-echo($conn->query($sql));
+$result = $conn->query($sql);
+echo(mysql_fetch_object($result));
 
 
 
