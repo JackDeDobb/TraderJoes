@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 // $result = $conn->query($sql);
 // echo(mysql_fetch_object($result));
 
-$conn->query("INSERT INTO User values("random", "Anoop")");
+//$conn->query("INSERT INTO User values("random", "Anoop")");
 
 $sql = "SELECT count(1) FROM Profile WHERE Profile.username = '$user';";
 
