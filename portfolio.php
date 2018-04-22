@@ -82,7 +82,6 @@ echo $tableString2;
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
-
         chart.draw(data, options);
       }
     </script>
