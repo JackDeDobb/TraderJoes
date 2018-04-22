@@ -18,7 +18,7 @@ $result = $conn->query($sql);
 
 //Update the Stocks Table
 $row = $result->fetch_assoc();
-if($row == false){
+if($row == true){
   echo "Error: User " . $user . " already exists!";
   return;
 }
