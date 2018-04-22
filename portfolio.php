@@ -117,11 +117,11 @@ echo $tableString;
 		<!--HERE INSERT ALL CODE FOR PORTFOLIO-->
 
 
-
     <body>
-      <div style="width: 100%; overflow: hidden;">
-          <div id="piechart" style="width: 400px; height: 500px;"></div>
-          <div id="piechart2" style="width: 400px; height: 500px;"></div>
+      <div id="the whole thing" style="height:100%; width:100%; overflow: hidden;">
+        <div id="piechart" style="float: left; width:25%; background-color:blue;">Left Side Menu</div>
+        <div id="piechart2" style="float: left; width:50%; background-color:green;">Random Content</div>
+        <div id="piechart" style="float: left; width:25%; background-color:yellow;">Right Side Menu</div>
       </div>
     </body>
 
