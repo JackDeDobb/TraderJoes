@@ -119,8 +119,13 @@ echo $tableString;
 
 
     <body>
-      <div id="piechart" style="width: 900px; height: 500px;"></div>
-      <div id="piechart2" style="width: 900px; height: 500px;"></div>
+      <div style="width: 100%; overflow: hidden;">
+          <div style="width: 600px; float: left;"> Left </div>
+          <div style="margin-left: 620px;"> Right </div>
+
+          <div id="piechart" style="width: 900px; float: left; height: 500px;"></div>
+          <div id="piechart2" style="margin-left: 900px; height: 500px;"></div>
+      </div>
     </body>
 
 
