@@ -21,7 +21,7 @@
 						<a href="search.html">Search</a>
 						<a href="portfolio.php">Portfolio</a>
 						<?php
-						if(1 ==0) {
+						if(strcmp($_SESSION['login_user'], "") == 0) {
 								echo '<button onclick="location.href = \'login.html\'" class="button alt">Login</button>';
 						} else {
 								echo '<button onclick="location.href = \'login.html\'" class="button alt">Logout</button>';
