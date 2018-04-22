@@ -98,7 +98,7 @@ echo $tableString2;
           data.addRows([
             <?php
               echo "['" . "Liquid" . "'," . "500" . "],";
-              echo "['" . "Stocks" . "'," . "200" . "],";
+              echo "['" . "Stocks" . "'," . "$totalCountForNext" . "],";
             ?>
           ]);
 
