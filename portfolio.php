@@ -2,7 +2,7 @@
 include 'credentials.php';
 session_start();
 $user = $_SESSION['login_user'];
-//echo $user;
+echo "User: " . $user;
 
 $sql = "SELECT * FROM PlayerAssets WHERE username = '$user'";
 $result = $conn->query($sql);
