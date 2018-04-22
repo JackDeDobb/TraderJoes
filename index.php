@@ -22,8 +22,7 @@
 						<a href="portfolio.php">Portfolio</a>
 						<?php
 						session_start();
-						echo $_SESSION['login_user'];
-						if(strcmp($_SESSION['login_user'], "") == 0) {
+						if(empty($_SESSION['login_user'])) {
 								echo '<button onclick="location.href = \'login.html\'" class="button alt">Login</button>';
 						} else {
 								echo '<button onclick="location.href = \'login.html\'" class="button alt">Logout</button>';
