@@ -22,7 +22,7 @@
 						<a href="portfolio.php">Portfolio</a>
 						<?php
 						if(empty($_SESSION['username'])) {
-								echo '<button onclick="location.href = 'login.html'" class="button alt">Login</button>';
+								echo '<button onclick="location.href = \'login.html\'" class="button alt">Login</button>';
 						} else {
 								echo 'hello';
 						}
