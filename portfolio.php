@@ -3,6 +3,7 @@ include 'credentials.php';
 session_start();
 $user = $_SESSION['login_user'];
 //echo $user;
+echo $user
 if(strcmp($user, "") == 0) { echo "hi"; }
 
 $sql = "SELECT * FROM PlayerAssets WHERE username = '$user'";
