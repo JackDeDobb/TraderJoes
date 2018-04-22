@@ -11,17 +11,19 @@ $pass = $_GET["password"];
 $email = $_GET["email"];
 
 
-//HERE INSERT CHECKS TO SEE IF THE USER ALREADY EXISTS FIRST
+//HERE INSERT CHECKS
+//Throw an error if password is too short
+if(strlen($pass) < 8) { echo "Error: Password must be at least 8 characters!"; return; }
+
+//Throw an error if email is not valid
+
+
+
+//Throw an error if that username already exists
 $sql = "SELECT username FROM User WHERE username = '$user'";
 $result = $conn->query($sql);
-
-
-//Update the Stocks Table
 $row = $result->fetch_assoc();
-if($row == true){
-  echo "Error: User " . $user . " already exists!";
-  return;
-}
+if($row == true){ echo "Error: User " . $user . " already exists!"; return; }
 
 
 
