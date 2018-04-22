@@ -11,6 +11,7 @@ $tableString = "<h2>Liquid Assets: $" . $row["cash"] . "</h2>";
 
 $sql = "SELECT * FROM Stocks WHERE username = '$user'";
 $result = $conn->query($sql);
+echo $tableString;
 ?>
 
 
@@ -113,6 +114,7 @@ $result = $conn->query($sql);
 
 
     <?php
+    $tableString = "";
     if ($result->num_rows > 0) {
         $tableString .= "<table><tr><th>Symbol</th><th>Quantity</th><th>Total Investment</th><th>Average Value</th></tr>";
         // output data of each row
