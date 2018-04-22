@@ -70,7 +70,7 @@ echo $tableString2;
                 $totalInvestmentNum = 0;
                 while($row = $result->fetch_assoc()) {
                     $avgVal = $row["total_investment"] / $row["quantity_stocks"];
-                    $tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . $row["total_investment"]. "</td><td>" . $avgVal . "</td></tr>";
+                    $tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td></tr>";
                     echo "['" . $row["ticker_symbol"] . "'," . $row["total_investment"] . "],";
                     $totalInvestmentNum += $row["total_investment"] ;
                 }
