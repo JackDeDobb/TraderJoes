@@ -96,10 +96,12 @@
     $row = $result->fetch_assoc();
     $tableString = "<h2>Liquid Assets: $" . $row["cash"] . "</h2>";
 
-    $tableString .= "<div id="the whole thing" style="height:500px; width:100%; overflow: hidden;">
-      <div id="piechart" style="float: left; width:50%; height:500px">Left Side Menu</div>
-      <div id="piechart2" style="float: left; width:50%; height:500px">Random Content</div>
-    </div>";
+    $tableString .= "<body>
+        <div id="the whole thing" style="height:500px; width:100%; overflow: hidden;">
+          <div id="piechart" style="float: left; width:50%; height:500px">Left Side Menu</div>
+          <div id="piechart2" style="float: left; width:50%; height:500px">Random Content</div>
+        </div>
+      </body>";
 
     $sql = "SELECT * FROM Stocks WHERE username = '$user'";
     $result = $conn->query($sql);
