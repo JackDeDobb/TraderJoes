@@ -12,7 +12,16 @@ $email = $_GET["email"];
 
 
 //HERE INSERT CHECKS TO SEE IF THE USER ALREADY EXISTS FIRST
+$sql = "SELECT username FROM User WHERE username = '$user'";
+$result = $conn->query($sql);
 
+
+//Update the Stocks Table
+$row = $result->fetch_assoc();
+if($row == false){
+  echo "Error: User " . $user . " already exists!";
+  return;
+}
 
 
 
