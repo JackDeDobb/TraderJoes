@@ -16,7 +16,7 @@ $email = $_GET["email"];
 if(strlen($pass) < 8) { echo "Error: Password must be at least 8 characters!"; return; }
 
 //Throw an error if email is not valid
-if(!($email contains '@')) { echo "Error: Email " . $email . " is not a valid email!"; return;}
+if(strpos($email, '@' ) !== false ) { echo "Error: Email " . $email . " is not a valid email!"; return;}
 
 //Throw an error if that username already exists
 $sql = "SELECT username FROM User WHERE username = '$user'";
