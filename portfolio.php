@@ -7,11 +7,11 @@ $user = $_SESSION['login_user'];
 $sql = "SELECT * FROM PlayerAssets WHERE username = '$user'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
-$tableString = "<h2>Liquid Assets: $" . $row["cash"] . "</h2>";
+$tableString2 = "<h2>Liquid Assets: $" . $row["cash"] . "</h2>";
 
 $sql = "SELECT * FROM Stocks WHERE username = '$user'";
 $result = $conn->query($sql);
-echo $tableString;
+echo $tableString2;
 ?>
 
 
@@ -64,7 +64,6 @@ echo $tableString;
           data.addColumn('number', 'TotalMoney');
 
           data.addRows([
-
             <?php
               // output data of each row
                 while($row = $result->fetch_assoc()) {
@@ -90,14 +89,15 @@ echo $tableString;
 
       function drawChart() {
 
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
+        var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Asset');
+          data.addColumn('number', 'TotalMoney');
+
+          data.addRows([
+            <?php
+              echo "['" . "Liquid" . "'," . $tableString2 . "],";
+            ?>
+          ]);
 
         var options = {
           title: 'Asset Diversity'
