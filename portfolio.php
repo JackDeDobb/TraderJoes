@@ -121,9 +121,8 @@ echo $tableString;
             $avgVal = $row["total_investment"] / $row["quantity_stocks"];
             $tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . $row["total_investment"]. "</td><td>" . $avgVal . "</td></tr>";
         }
-        $tableString .= "</table>";
     }
-
+    $tableString .= "</table>";
     $conn->close();
     echo $tableString;
     ?>
