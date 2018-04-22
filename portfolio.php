@@ -95,7 +95,7 @@ echo $tableString2;
 
           data.addRows([
             <?php
-              echo "['" . "Liquid" . "'," . $tableString2 . "],";
+              echo "['" . "Liquid" . "'," . 500. "],";
             ?>
           ]);
 
