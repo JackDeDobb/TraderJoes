@@ -88,17 +88,20 @@ echo $tableString;
                 $tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . $row["total_investment"]. "</td><td>" . $avgVal . "</td></tr>";
             }
         }
-        $tableString .= "</table>";
-        $conn->close();
         ?>
 
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
+        var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Symbol');
+          data.addColumn('number', 'TotalMoney');
+
+          data.addRows([
+
+            <?php
+              for($i=0;$i<$countArrayLength;$i++){
+                echo "['" . $values[$i]['year'] . "'," . $values[$i]['newbalance'] . "],";
+              }
+            ?>
+          ]);
 
         var options = {
           title: 'My Daily Activities'
@@ -129,6 +132,8 @@ echo $tableString;
 
 
     <?php
+      $tableString .= "</table>";
+      $conn->close();
       echo $tableString;
     ?>
 
