@@ -20,7 +20,13 @@
 						<a href="index.html">Home</a>
 						<a href="search.html">Search</a>
 						<a href="portfolio.php">Portfolio</a>
-						
+						<?php
+						if(empty($_SESSION['username'])) {
+								echo 'hi';
+						} else {
+								echo 'hello';
+						}
+						?>
 						<button onclick="location.href = 'login.html'" class="button alt">Login</button>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
