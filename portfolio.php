@@ -90,16 +90,12 @@ echo $tableString;
           data.addRows([
 
             <?php
-              
-
-              if ($result->num_rows > 0) {
-                  // output data of each row
-                  while($row = $result->fetch_assoc()) {
-                      $avgVal = $row["total_investment"] / $row["quantity_stocks"];
-                      $tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . $row["total_investment"]. "</td><td>" . $avgVal . "</td></tr>";
-                      echo "['" . $row["ticker_symbol"] . "'," . $row["total_investment"] . "],";
-                  }
-              }
+              // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    $avgVal = $row["total_investment"] / $row["quantity_stocks"];
+                    $tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . $row["total_investment"]. "</td><td>" . $avgVal . "</td></tr>";
+                    echo "['" . $row["ticker_symbol"] . "'," . $row["total_investment"] . "],";
+                }
             ?>
           ]);
 
