@@ -3,8 +3,6 @@ include 'credentials.php';
 session_start();
 $user = $_SESSION['login_user'];
 //echo $user;
-echo $user . "hi2";
-if(strcmp($user, "") == 0) { header('Location: http://mocktrading.web.engr.illinois.edu/login.html'); exit(); }
 
 $sql = "SELECT * FROM PlayerAssets WHERE username = '$user'";
 $result = $conn->query($sql);
