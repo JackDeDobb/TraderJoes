@@ -120,7 +120,7 @@ echo $tableString;
     <body>
       <div style="width: 100%; overflow: hidden;">
           <div id="piechart" style="width: 700px; float: left; height: 500px;"></div>
-          <div id="piechart2" style="margin-left: 900px; height: 500px;"></div>
+          <div id="piechart2" style="margin-left: 900px; height: 800px;"></div>
       </div>
     </body>
 
