@@ -79,6 +79,18 @@ echo $tableString;
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
+        <?php
+        $tableString = "<table><tr><th>Symbol</th><th>Quantity</th><th>Total Investment</th><th>Average Value</th></tr>";
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $avgVal = $row["total_investment"] / $row["quantity_stocks"];
+                $tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . $row["total_investment"]. "</td><td>" . $avgVal . "</td></tr>";
+            }
+        }
+        $tableString .= "</table>";
+        $conn->close();
+        ?>
 
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
@@ -113,18 +125,11 @@ echo $tableString;
 
 
 
+
+
+
     <?php
-    $tableString = "<table><tr><th>Symbol</th><th>Quantity</th><th>Total Investment</th><th>Average Value</th></tr>";
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            $avgVal = $row["total_investment"] / $row["quantity_stocks"];
-            $tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . $row["total_investment"]. "</td><td>" . $avgVal . "</td></tr>";
-        }
-    }
-    $tableString .= "</table>";
-    $conn->close();
-    echo $tableString;
+      echo $tableString;
     ?>
 
 
