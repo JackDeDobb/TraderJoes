@@ -1,3 +1,24 @@
+<?php
+include 'credentials.php';
+session_start();
+$user = $_SESSION['login_user'];
+//echo $user;
+
+$sql = "SELECT * FROM PlayerAssets WHERE username = '$user'";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$tableString = "<h2>Liquid Assets: $" . $row["cash"] . "</h2>";
+
+$sql = "SELECT * FROM Stocks WHERE username = '$user'";
+$result = $conn->query($sql);
+?>
+
+
+
+
+
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -90,20 +111,8 @@
 
 
 
+
     <?php
-    include 'credentials.php';
-    session_start();
-    $user = $_SESSION['login_user'];
-    //echo $user;
-
-    $sql = "SELECT * FROM PlayerAssets WHERE username = '$user'";
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    $tableString = "<h2>Liquid Assets: $" . $row["cash"] . "</h2>";
-
-    $sql = "SELECT * FROM Stocks WHERE username = '$user'";
-    $result = $conn->query($sql);
-
     if ($result->num_rows > 0) {
         $tableString .= "<table><tr><th>Symbol</th><th>Quantity</th><th>Total Investment</th><th>Average Value</th></tr>";
         // output data of each row
