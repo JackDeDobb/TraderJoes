@@ -13,7 +13,7 @@ $row = $result->fetch_assoc();
 if($row == false){ echo "Error: User " . $user . " does not exist!"; return; }
 
 //Throw an error if the password does not match password in database
-echo "hi" . $row["username"];
+if (strcmp($row["password"], $pass) != 0) { echo "Error: Password does not match!"; return; };
 
 
 ?>
