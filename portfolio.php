@@ -8,6 +8,7 @@ $sql = "SELECT * FROM PlayerAssets WHERE username = '$user'";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $tableString2 = "<h2>Liquid Assets: $" . $row["cash"] . "</h2>";
+$liquidForLater = $row["cash"];
 
 $sql = "SELECT * FROM Stocks WHERE username = '$user'";
 $result = $conn->query($sql);
@@ -97,7 +98,7 @@ echo $tableString2;
 
           data.addRows([
             <?php
-              echo "['" . "Liquid" . "'," . $tableString2 . "],";
+              echo "['" . "Liquid" . "'," . $liquidForLater . "],";
               echo "['" . "Stocks" . "'," . $totalInvestmentNum . "],";
             ?>
           ]);
