@@ -24,10 +24,9 @@
 						if(empty($_SESSION['username'])) {
 								echo '<button onclick="location.href = \'login.html\'" class="button alt">Login</button>';
 						} else {
-								echo 'hello';
+								echo '<button onclick="location.href = \'login.html\'" class="button alt">Logout</button>';
 						}
 						?>
-						<button onclick="location.href = 'login.html'" class="button alt">Login</button>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
