@@ -8,3 +8,4 @@ chmod 644 processInput.php
 chmod 644 buy.php
 chmod 644 sell.php
 chmod 644 portfolio.php
+chmod 644 index.php
