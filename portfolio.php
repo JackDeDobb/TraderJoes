@@ -66,6 +66,7 @@ echo $tableString2;
           data.addRows([
             <?php
               // output data of each row
+                $totalInvestmentNum = 0
                 while($row = $result->fetch_assoc()) {
                     $avgVal = $row["total_investment"] / $row["quantity_stocks"];
                     $tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . $row["total_investment"]. "</td><td>" . $avgVal . "</td></tr>";
