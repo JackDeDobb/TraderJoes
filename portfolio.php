@@ -119,9 +119,8 @@ echo $tableString;
 
     <body>
       <div id="the whole thing" style="height:500px; width:100%; overflow: hidden;">
-        <div id="piechart" style="float: left; width:25%; height:500px">Left Side Menu</div>
+        <div id="piechart" style="float: left; width:50%; height:500px">Left Side Menu</div>
         <div id="piechart2" style="float: left; width:50%; height:500px">Random Content</div>
-        <div id="piechart" style="float: left; width:25%; height:500px">Right Side Menu</div>
       </div>
     </body>
 
