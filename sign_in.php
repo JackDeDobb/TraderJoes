@@ -16,4 +16,10 @@ if($row == false){ echo "Error: User " . $user . " does not exist!"; return; }
 if (strcmp($row["password"], $pass) != 0) { echo "Error: Password does not match!"; return; };
 
 
+$_SESSION['login_user'] = $user;
+
+echo "Successfully logged in user.";
+
+
+$conn->close();
 ?>
