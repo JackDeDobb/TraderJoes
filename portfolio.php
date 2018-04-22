@@ -119,7 +119,7 @@ echo $tableString;
 
     <body>
       <div style="width: 100%; overflow: hidden;">
-          <div id="piechart" style="width: 600px; float: left; height: 500px;"></div>
+          <div id="piechart" style="width: 900px; float: left; height: 500px;"></div>
           <div id="piechart2" style="margin-left: 900px; height: 500px;"></div>
       </div>
     </body>
