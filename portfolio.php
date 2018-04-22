@@ -71,7 +71,6 @@ echo $tableString2;
                     $avgVal = $row["total_investment"] / $row["quantity_stocks"];
                     $tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . $row["total_investment"]. "</td><td>" . $avgVal . "</td></tr>";
                     echo "['" . $row["ticker_symbol"] . "'," . $row["total_investment"] . "],";
-                    $totalCountForNext += $row["total_investment"];
                 }
             ?>
           ]);
@@ -97,8 +96,8 @@ echo $tableString2;
 
           data.addRows([
             <?php
-              echo "['" . "Liquid" . "'," . "500" . "],";
-              echo "['" . "Stocks" . "'," . "$totalCountForNext" . "],";
+              echo "['" . "Liquid" . "'," . "500". "],";
+              echo "['" . "Stocks" . "'," . "500". "],";
             ?>
           ]);
 
