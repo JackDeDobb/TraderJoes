@@ -81,13 +81,6 @@ echo $tableString;
       function drawChart() {
         <?php
         $tableString = "<table><tr><th>Symbol</th><th>Quantity</th><th>Total Investment</th><th>Average Value</th></tr>";
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                $avgVal = $row["total_investment"] / $row["quantity_stocks"];
-                $tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . $row["total_investment"]. "</td><td>" . $avgVal . "</td></tr>";
-            }
-        }
         ?>
 
         var data = new google.visualization.DataTable();
@@ -97,8 +90,15 @@ echo $tableString;
           data.addRows([
 
             <?php
-              for($i=0;$i<$countArrayLength;$i++){
-                echo "['" . $values[$i]['year'] . "'," . $values[$i]['newbalance'] . "],";
+              
+
+              if ($result->num_rows > 0) {
+                  // output data of each row
+                  while($row = $result->fetch_assoc()) {
+                      $avgVal = $row["total_investment"] / $row["quantity_stocks"];
+                      $tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . $row["total_investment"]. "</td><td>" . $avgVal . "</td></tr>";
+                      echo "['" . $row["ticker_symbol"] . "'," . $row["total_investment"] . "],";
+                  }
               }
             ?>
           ]);
