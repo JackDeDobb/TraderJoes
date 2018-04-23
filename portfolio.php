@@ -157,17 +157,17 @@ echo $tableString2;
 				echo "<br>", $error->message;
 			}
 		}
-		// else {
-		// 	for($i = 1, $i < 3; $i++) {
-		// 		echo "<a href=\"" . $xml->channel->item[1]->link . "\">";
-		// 		echo "<div class=\"box\">";
-		// 		echo "<h5>" . $xml->channel->item[1]->title . "</h5>";
-		// 		echo $xml->channel->item[1]->pubDate . "<br>";
-		// 		echo $xml->channel->item[1]->description . "<br>";
-		// 		echo "</div>";
-		// 		echo "</a>";
-		// 	}
-		// }	
+		else {
+			for($i = 1, $i < 3; $i++) {
+				// echo "<a href=\"" . $xml->channel->item[1]->link . "\">";
+				// echo "<div class=\"box\">";
+				echo "<h5>" . $xml->channel->item[1]->title . "</h5>";
+				echo $xml->channel->item[1]->pubDate . "<br>";
+				echo $xml->channel->item[1]->description . "<br>";
+				// echo "</div>";
+				// echo "</a>";
+			}
+		}	
 	?>	
 		 <!--Footer-->
 			<footer id="footer">
