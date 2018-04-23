@@ -104,10 +104,18 @@
 			<div class="inner">
 				<a href="https://wiki.illinois.edu/wiki/display/cs411sp18/Trader+Joe%2527s" class="logo"><strong>Trader Joe's</strong></a>
 				<nav id="nav">
-					<a href="index.html">Home</a>
-					<a href="search.html">Search</a>
+					<a href="index.php">Home</a>
+					<a href="search.php">Search</a>
 					<a href="portfolio.php">Portfolio</a>
-					<a href="login.html"><u>Login</u></a>
+					<a href="history.php">History</a>
+					<?php
+						session_start();
+						if(empty($_SESSION['login_user'])) {
+							echo '<a href="login.php"><u>Login</u></a>';
+						} else {
+							echo '<a href="logout.php"><u>Logout</u></a>';
+						}
+					?>
 				</nav>
 				<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 			</div>

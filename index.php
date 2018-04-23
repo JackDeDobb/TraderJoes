@@ -17,16 +17,17 @@
 				<div class="inner">
 					<a href="https://wiki.illinois.edu/wiki/display/cs411sp18/Trader+Joe%2527s" class="logo"><strong>Trader Joe's</strong></a>
 					<nav id="nav">
-						<a href="index.html">Home</a>
-						<a href="search.html">Search</a>
+						<a href="index.php">Home</a>
+						<a href="search.php">Search</a>
 						<a href="portfolio.php">Portfolio</a>
+						<a href="history.php">History</a>
 						<?php
-						session_start();
-						if(empty($_SESSION['login_user'])) {
-								echo '<button onclick="location.href = \'login.html\'" class="button alt">Login</button>';
-						} else {
-								echo '<button onclick="location.href = \'logout.html\'" class="button alt">Logout</button>';
-						}
+							session_start();
+							if(empty($_SESSION['login_user'])) {
+								echo '<button onclick="location.href = \'login.php\'" class="button alt">Login</button>';
+							} else {
+								echo '<button onclick="location.href = \'logout.php\'" class="button alt">Logout</button>';
+							}
 						?>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
@@ -63,7 +64,7 @@
 					</div>
 
 					<footer>
-						<a href="login.html" class="button big">Get Started</a>
+						<a href="login.php" class="button big">Get Started</a>
 					</footer>
 				</div>
 			</section>

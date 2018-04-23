@@ -35,6 +35,11 @@ $sql = "UPDATE PlayerAssets SET cash = cash - '$totalSubtraction' WHERE username
 $conn->query($sql);
 
 
+//Update the PlayerTransactions Table
+$sql = "INSERT INTO PlayerTransactions VALUES ('$user', '$symbol', CURRENT_TIMESTAMP, '$quantity', '$price', 'BUY')";
+$conn->query($sql);
+
+
 
 
 echo($user . " has successfully bought 1 stock of " . $symbol . " at " . $price . ".");

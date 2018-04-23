@@ -9,3 +9,7 @@ chmod 644 buy.php
 chmod 644 sell.php
 chmod 644 portfolio.php
 chmod 644 index.php
+chmod 644 search.php
+chmod 644 login.php
+chmod 644 logout.php
+chmod 644 history.php
