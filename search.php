@@ -254,13 +254,14 @@
 document.getElementById("indexft").innerHTML = "test to start";
 
 
-					var xmlHttp = new XMLHttpRequest();
 
 
-					xmlHttp.onreadystatechange = function() {
+					xhttp.onreadystatechange = function() {
 						if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
 								callback(xmlHttp.responseText);
-					}
+					};
+					xhttp.open("GET", getRequest, true);
+					xhttp.send();
 
 
 					document.getElementById("indexft").innerHTML = xmlHttp.responseText;
