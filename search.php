@@ -264,7 +264,7 @@
 					xhttp.send(null);
 
 
-					document.getElementById("indexft").innerHTML = "test to end";
+					document.getElementById("indexft").innerHTML = xhttp.responseText;
 
 				}
   </script>
