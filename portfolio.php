@@ -81,6 +81,7 @@ echo $tableString2;
                     $tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td></tr>";
                     echo "['" . $row["ticker_symbol"] . "'," . $row["total_investment"] . "],";
                     $totalInvestmentNum += $row["total_investment"] ;
+                    $stocks .= $row["ticker_symbol"] . ",";
                 }
             ?>
           ]);
@@ -152,7 +153,7 @@ echo $tableString2;
 		<div class="box">
 			<p>
 			<?php
-				$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=fb");
+				$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=" + $stocks);
 				$xml=simplexml_load_string($myXMLData);
 
 				if($xml == false) {
