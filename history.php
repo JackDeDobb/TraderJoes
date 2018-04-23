@@ -4,15 +4,9 @@ session_start();
 $user = $_SESSION['login_user'];
 echo "User: " . $user;
 
-$sql = "SELECT * FROM PlayerAssets WHERE username = '$user'";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
-$tableString2 = "<h2>Liquid Assets: $" . money_format('%i', $row["cash"]) . "</h2>";
-$liquidForLater = $row["cash"];
 
 $sql = "SELECT * FROM Stocks WHERE username = '$user'";
 $result = $conn->query($sql);
-echo $tableString2;
 
 
 $totalInvestmentNum = 0;
