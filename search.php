@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Projection by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
 <html>
 	<head>
 		<title>Generic - Projection by TEMPLATED</title>
@@ -36,10 +31,11 @@
         chart.draw(data, options);
       }
 
+
+
+
+
 			function drawChart(symbol){
-        // API code
-        //var currentPrice;
-        //var thered;
         var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
         $.getJSON(param, function(info) {
             const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -72,64 +68,14 @@
 
             chart.draw(data, options);
         });
-
-        // //sending to PHP
-        // var xmlhttp = new XMLHttpRequest();
-        // xmlhttp.onreadystatechange = function(){
-        //   //function for the front end
-        //   //this code will be executed when servers sends back response
-        //   //call this.responseText to get the response from server
-        //   $("#retData").innerHTML = this.responseText;
-        //   // above text sets returned data in HTML, good test to see php working
-        // };
-        //
-        // // need to write a script called processInput.php that takes the input
-        // // and processes it
-        // xmlhttp.open("GET", "http://mocktrading.web.engr.illinois.edu/processInput.php?q=" + symbol, true);
-        // xmlhttp.send();
       }
 
-      // example function for getting json and sending info to sever
-      // function printData(){
-      //   var symbol = $("#myText").val();
-      //   var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+symbol.toUpperCase()+'&interval=15min&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
-      //   $.getJSON(param, function(data) {
-      //       console.log(data);
-      //   });
-			//
-      //   var xmlhttp = new XMLHttpRequest();
-      //   xmlhttp.onreadystatechange = function(){
-      //     //function for the front end
-      //     //this code will be executed when servers sends back response
-      //     //call this.responseText to get the response from server
-      //     $("#retData").innerHTML = this.responseText;
-      //     // above text sets returned data in HTML, good test to see php working
-      //   };
-			//
-      //   // need to write a script called processInput.php that takes the input
-      //   // and processes it
-      //   xmlhttp.open("GET", "processInput.php?q=" + symbol, true);
-      //   xmlhttp.send();
-      // }
+
+
 
 			function buyStock(){
 				var symbol = $("#tick_sym").val().toUpperCase();
 				window.location.href = "buy.php?q=" + symbol;
-
-				// var xmlhttp = new XMLHttpRequest();
-				// xmlhttp.onreadystatechange = function(){
-				// 	//function for the front end
-				// 	//this code will be executed when servers sends back response
-				// 	//call this.responseText to get the response from server
-				// 	console.log("Hi we here");
-				// 	$("#test").text(Success);
-				// 	// above text sets returned data in HTML, good test to see php working
-				// };
-				//
-				// // need to write a script called processInput.php that takes the input
-				// // and processes it
-				// xmlhttp.open("GET", "mocktrading.web.engr.illinois.edu/buy.php?q=" + symbol, true);
-				// xmlhttp.send();
 			}
 
 			function sellStock(){
@@ -146,20 +92,13 @@
 						$("#currPrice").text("Current Price: $" + data["Stock Quotes"]["0"]["2. price"]);
         });
 				drawChart(symbol);
+				loadArticles(symbol);
 			}
 
 
 
 			function renderGraphDates(){
 				var symbol = $("#tick_sym").val().toUpperCase();
-				//console.log(symbol);
-				//var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol+"&apikey=S4TYOA5YDZJBLT1K";
-				// $.getJSON(url, function(data) {
-        //     //console.log(data);
-				// 		//$("#currPrice").innerHTML = "Current Price: " + data["Stock Quotes"]["0"]["2. price"];
-				// 		//$("#currPrice").text("Current Price: $" + data["Stock Quotes"]["0"]["2. price"]);
-				//
-        // });
 				var start = document.getElementById("start-date").value;
 				var end =  document.getElementById("end-date").value;
 				start = new Date(parseInt(start.substring(0,4)), parseInt(start.substring(5,7)), parseInt(start.substring(8)));
@@ -239,7 +178,7 @@
 
 
 
-      <form action="javascript:displayPrice()" method="POST">
+      <form action="javascript:displayPrice()">
         <div class="row uniform">
           <div class="6u 12u$(xsmall)">
             <input type="text" name="symbol" id="tick_sym" value="<?php echo "$symbol";?>" placeholder="Ticker Symbol" />
