@@ -309,6 +309,40 @@
 
 
 
+		<h3>Related Articles</h3>
+
+		<?php
+		$get_request = "http://finance.yahoo.com/rss/headline?s=" . "aapl";
+		$myXMLData = file_get_contents($get_request);
+		$xml=simplexml_load_string($myXMLData);
+		if($xml == false) {
+			echo "Failed loading XML: ";
+			foreach(libxml_get_errors() as $error) {
+				echo "<br>", $error->message;
+			}
+		}
+		else {
+			$i = 1;
+			while($xml->channel->item[$i] != false) {
+				echo "<a href=\"" . $xml->channel->item[$i]->link . "\">";
+				echo "<div class=\"box\">";
+				echo "<header>";
+				echo "<h5>" . $xml->channel->item[$i]->title . "</h5>";
+				echo "<p>" . $xml->channel->item[$i]->pubDate . "</p>";
+				echo "</header>";
+				echo $xml->channel->item[$i]->description . "<br>";
+				echo "</div>";
+				echo "</a>";
+				$i++;
+			}
+		}
+		?>
+
+
+
+
+
+
 
 
 
