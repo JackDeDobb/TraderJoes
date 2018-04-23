@@ -279,7 +279,7 @@
 
 
 
-<div class="box" id="indexft"></div>
+
 
   <script>
 				function loadArticles(symbol) {
@@ -321,6 +321,19 @@
 
 
 		<h3>Related Articles</h3>
+		<div class="box" id="indexft"></div>
+
+
+		<div class="box" id="box1"></div>
+		<div class="box" id="box2"></div>
+		<div class="box" id="box3"></div>
+		<div class="box" id="box4"></div>
+		<div class="box" id="box5"></div>
+		<div class="box" id="box6"></div>
+		<div class="box" id="box7"></div>
+		<div class="box" id="box8"></div>
+		<div class="box" id="box9"></div>
+		<div class="box" id="box10"></div>
 
 		<?php
 		$get_request = "http://finance.yahoo.com/rss/headline?s=" . "yahoo" . $_POST['symbol'];
