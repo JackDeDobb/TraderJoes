@@ -217,12 +217,48 @@
 
           <div class="3u$ 12u$(small)">
             <ul class="actions vertical small">
-              <li><a href="portfolio.php" class="button small fit">History</a></li>
+              <li><a href="history.php" class="button small fit">History</a></li>
             </ul>
           </div>
 
           </div>
         </div>
+
+
+
+				<div class="row">
+					<div class="3u 12u$(small)">
+						<ul class="actions vertical">
+							<li><a href="#" class="button alt"></a></li>
+						</ul>
+					</div>
+
+					<form action="javascript:buyStock()">
+						<div class="3u 12u$(small)">
+							<ul class="actions vertical small">
+								<input type = "submit" value = "Buy">
+							</ul>
+						</div>
+					</form>
+
+					<form action="javascript:sellStock()">
+					<div class="3u 12u$(small)">
+						<ul class="actions vertical small">
+							<input type = "submit" value = "Sell">
+						</ul>
+					</div>
+				</form>
+
+				<div class="3u$ 12u$(small)">
+					<ul class="actions vertical small">
+						<li><a href="history.php" class="button small fit">History</a></li>
+					</ul>
+				</div>
+
+				</div>
+
+
+
 
 				<h2 id="currPrice">Current Price: </h2>
 
@@ -237,7 +273,7 @@
 							<input type="date" id="end-date" placeholder="End Date" />
 						</div>
 						<div class="6u$ 12u$(xsmall)">
-						<input type = "submit" value = "Render Graph">
+							<input type = "submit" value = "Render Graph">
 						</div>
 					</div>
 				</form>
