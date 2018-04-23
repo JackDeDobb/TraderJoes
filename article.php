@@ -14,7 +14,7 @@ $tableString = "<table><tr><th>Symbol</th><th>Time Traded</th><th>Quantity</th><
 while($row = $result->fetch_assoc()) {
 		$tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["time_traded"]. "</td><td>" . $row["quantity_stocks"] . "</td><td>" . $row["price_per_stock"] . "</td><td>" . $row["buy_or_sell"] . "</td></tr>";
 }
-
+?>
 
 
 $tableString .= "</table>";
@@ -36,4 +36,3 @@ echo $tableString;
 // 	echo $xml->channel->item[1]->pubDate . "<br>";
 // 	echo $xml->channel->item[1]->link . "<br>";
 // }
-?>
