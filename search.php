@@ -243,10 +243,13 @@
 				</form>
 
 
+
+<p id="insert"></p>
+
   <script>
 				function loadArticles(symbol) {
 					var getRequest = 'http://finance.yahoo.com/rss/headline?s='+ 'yahoo';
-					document.write("<h5>HELLLOOOOOOOO</h5>")
+					document.getElementById("insert").innerHTML = "HELLO";
 				}
   </script>
 
