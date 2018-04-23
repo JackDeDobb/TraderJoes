@@ -120,11 +120,11 @@ if ($conn->query($sql) === TRUE) {
 
 $sql = "CREATE TABLE PlayerTransactions (
 username         VARCHAR(30),
-ticker_symbol    VARCHAR(3),
+ticker_symbol    VARCHAR(4),
 time_traded      TIMESTAMP,
 quantity_stocks  INTEGER    NOT NULL,
 price_per_stock  REAL       NOT NULL,
-buy_or_sell      BOOLEAN    NOT NULL,
+buy_or_sell      VARCHAR(4)    NOT NULL,
 PRIMARY KEY(username, ticker_symbol, time_traded)
 )";
 if ($conn->query($sql) === TRUE) {
