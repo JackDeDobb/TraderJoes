@@ -179,7 +179,7 @@
 
       <body>
 				<h2 id="currPrice">Current Price: </h2>
-        <div id="curve_chart" style="width: 1000px; height: 500px"></div>
+        <div id="curve_chart" style="width: 4000px; height: 500px"></div>
 
 
 
