@@ -12,3 +12,4 @@ chmod 644 index.php
 chmod 644 search.php
 chmod 644 login.php
 chmod 644 logout.php
+chmod 644 history.php

@@ -95,7 +95,7 @@ username  VARCHAR(30) PRIMARY KEY,
 score     INTEGER     NOT NULL
 )";
 if ($conn->query($sql) === TRUE) {
-    echo "Table $tableName created successfully\n";
+    echo "Table TopLosers created successfully\n";
 } else {
     echo "Error creating table TopLosers: " . $conn->error;
 }
