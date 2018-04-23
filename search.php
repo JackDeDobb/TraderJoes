@@ -260,7 +260,7 @@ document.getElementById("indexft").innerHTML = "test to start";
 					xmlHttp.onreadystatechange = function() {
 						if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
 								callback(xmlHttp.responseText);
-					};
+					}
 
 
 					document.getElementById("indexft").innerHTML = xmlHttp.responseText;
