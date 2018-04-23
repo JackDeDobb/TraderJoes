@@ -229,7 +229,12 @@
 
 
 
-				<form action="javascript:renderGraphDates()">
+
+
+
+
+
+				<form method="post" action="#">
 					<div class="row uniform">
 						<div class="6u 12u$(xsmall)">
 							<input type="text" name="demo-name" id="demo-start-date" value="" placeholder="Start Date" />
@@ -237,9 +242,8 @@
 						<div class="6u$ 12u$(xsmall)">
 							<input type="email" name="demo-email" id="demo-end-date" value="" placeholder="End Date" />
 						</div>
+					</div>
 				</form>
-
-
 
 
     </body>
