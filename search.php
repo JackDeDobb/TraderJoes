@@ -307,12 +307,12 @@
 
     </body>
 
-
+	
 
 		<h3>Related Articles</h3>
 
 		<?php
-		$get_request = "http://finance.yahoo.com/rss/headline?s=" . "aapl";
+		$get_request = "http://finance.yahoo.com/rss/headline?s=" . $_POST['symbol'];
 		$myXMLData = file_get_contents($get_request);
 		$xml=simplexml_load_string($myXMLData);
 		if($xml == false) {
