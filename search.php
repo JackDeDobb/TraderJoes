@@ -223,20 +223,28 @@
           </div>
 
           </div>
+					<div class="6u 12u$(small)">
+						<ul class="actions vertical small">
+							<input type = "submit" value = "Buy">
+						</ul>
+					</div>
         </div>
 
 
+
+					<form action="javascript:buyStock()">
+						<div class="6u 12u$(small)">
+							<ul class="actions vertical small">
+								<input type = "submit" value = "Buy">
+							</ul>
+						</div>
+					</form>
 
 
 
 
 
 				<form action="javascript:renderGraphDates()">
-					<div class="6u 12u$(small)">
-						<ul class="actions vertical small">
-							<input type = "submit" value = "Buy">
-						</ul>
-					</div>
 					<div class="row uniform">
 						<div class="6u 12u$(xsmall)">
 							<input type="date" id="start-date" placeholder="Start Date" />
