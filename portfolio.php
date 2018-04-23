@@ -151,6 +151,9 @@ echo $tableString2;
 		$get_request = "http://finance.yahoo.com/rss/headline?s=" . $stocks;
 		$myXMLData = file_get_contents($get_request);
 		$xml=simplexml_load_string($myXMLData);
+		if($xml != false) {
+			echo "<a href=\"" . $xml->channel->item[1]->link . "\">"
+		}
 		echo "<div class=\"box\">";
 		if($xml == false) {
 			echo "Failed loading XML: ";
@@ -162,9 +165,11 @@ echo $tableString2;
 			echo "<h5>" . $xml->channel->item[1]->title . "</h5>";
 			echo $xml->channel->item[1]->pubDate . "<br>";
 			echo $xml->channel->item[1]->description . "<br>";
-			echo $xml->channel->item[1]->link . "<br>";
 		}
 		echo "</div>";
+		if($xml != false) {
+			echo "</a>"
+		}
 	?>	
 	
 
