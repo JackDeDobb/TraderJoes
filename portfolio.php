@@ -145,27 +145,28 @@ echo $tableString2;
       echo $tableString;
     ?>
 
-	<h3>Related Articles</h3>
-	<div class="box">
-		<?php
-			$get_request = "http://finance.yahoo.com/rss/headline?s=" . $stocks;
-			$myXMLData = file_get_contents($get_request);
-			$xml=simplexml_load_string($myXMLData);
+	<?php
+		echo "<h3>Related Articles</h3><div class="box">";
+		$get_request = "http://finance.yahoo.com/rss/headline?s=" . $stocks;
+		$myXMLData = file_get_contents($get_request);
+		$xml=simplexml_load_string($myXMLData);
 
-			if($xml == false) {
-				echo "Failed loading XML: ";
-				foreach(libxml_get_errors() as $error) {
-					echo "<br>", $error->message;
-				}
+		if($xml == false) {
+			echo "Failed loading XML: ";
+			foreach(libxml_get_errors() as $error) {
+				echo "<br>", $error->message;
 			}
-			else {
-				echo "<h5>" . $xml->channel->item[1]->title . "</h5>";
-				echo $xml->channel->item[1]->pubDate . "<br>";
-				echo $xml->channel->item[1]->description . "<br>";
-				echo $xml->channel->item[1]->link . "<br>";
-			}
-		?>	
-	</div>
+		}
+		else {
+			echo "<h5>" . $xml->channel->item[1]->title . "</h5>";
+			echo $xml->channel->item[1]->pubDate . "<br>";
+			echo $xml->channel->item[1]->description . "<br>";
+			echo $xml->channel->item[1]->link . "<br>";
+		}
+		echo "</div>";
+	?>	
+	
+
 	<div class="box">
 		<?php
 			if($xml == false) {
@@ -182,7 +183,6 @@ echo $tableString2;
 			}
 		?>	
 	</div>
-
 		 <!--Footer-->
 			<footer id="footer">
 				<div class="inner">
