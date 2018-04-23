@@ -267,30 +267,37 @@
 
 
 
-											<form action="javascript:buyStock()">
+
+					<div class="row uniform">
+
+
+
+												<form action="javascript:buyStock()">
+													<div class="3u 12u$(small)">
+														<ul class="actions vertical small">
+															<input type = "submit" value = "Buy">
+														</ul>
+													</div>
+												</form>
+
+												<form action="javascript:sellStock()">
 												<div class="3u 12u$(small)">
 													<ul class="actions vertical small">
-														<input type = "submit" value = "Buy">
+														<input type = "submit" value = "Sell">
 													</ul>
 												</div>
 											</form>
 
-											<form action="javascript:sellStock()">
-											<div class="3u 12u$(small)">
+											<div class="3u$ 12u$(small)">
 												<ul class="actions vertical small">
-													<input type = "submit" value = "Sell">
+													<li><a href="history.php" class="button small fit">History</a></li>
 												</ul>
 											</div>
-										</form>
-
-										<div class="3u$ 12u$(small)">
-											<ul class="actions vertical small">
-												<li><a href="history.php" class="button small fit">History</a></li>
-											</ul>
-										</div>
 
 
-					<div class="row uniform">
+
+
+
 						<div class="6u 12u$(xsmall)">
 							<input type="date" id="start-date" placeholder="Start Date" />
 						</div>
