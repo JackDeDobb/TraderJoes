@@ -244,7 +244,7 @@
 
 
 
-<div class="box" id="1"></div>
+<div class="box" id="indexft"></div>
 
   <script>
 				function loadArticles(symbol) {
@@ -259,7 +259,7 @@ document.getElementById("1").innerHTML = symbol;
     			xmlHttp.open("GET", getRequest, true); // true for asynchronous
     			xmlHttp.send(null);
 
-					document.getElementById("1").innerHTML = xmlHttp.responseText;
+					document.getElementById("indexft").innerHTML = xmlHttp.responseText;
 				}
   </script>
 
