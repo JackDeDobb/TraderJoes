@@ -117,14 +117,15 @@
 						data.addColumn('number', 'Price');
 
 						console.log(Object.keys(info["Time Series (Daily)"]));
-
+						var counter = 0
 						Object.keys(info["Time Series (Daily)"]).forEach(function(day){
 							var year = parseInt(day.substring(0, 4));
 							var month = parseInt(day.substring(5, 7));
 							var day2 = parseInt(day.substring(8));
 							var obj = new Date(year, month, day2);
 							//console.log("Year: "+year+" Day: "+day2+" Month"+month);
-							if(year == currYear){
+							if(counter <= 261){
+								counter = counter + 1
 								data.addRow([
 									{v: obj, f: (monthNames[month-1]+' '+day2.toString()+', '+year.toString())},
 									Number(info["Time Series (Daily)"][day]["4. close"])
