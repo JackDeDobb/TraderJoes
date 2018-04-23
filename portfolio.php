@@ -158,7 +158,7 @@ echo $tableString2;
 			}
 		}
 		else {
-			for($i = 1, $i < 10; $i++) {
+			for($i = 1, $i < 3; $i++) {
 				echo "<a href=\"" . $xml->channel->item[$i]->link . "\">";
 				echo "<div class=\"box\">";
 				echo "<h5>" . $xml->channel->item[$i]->title . "</h5>";
