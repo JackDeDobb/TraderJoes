@@ -226,11 +226,6 @@
 
 
 					<div class="row">
-						<div class="3u 12u$(small)">
-							<ul class="actions vertical">
-								<li><a href="#" class="button alt"></a></li>
-							</ul>
-						</div>
 
 						<form action="javascript:buyStock()">
 							<div class="3u 12u$(small)">
