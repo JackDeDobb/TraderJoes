@@ -39,6 +39,10 @@ $totalAddition = $quantity * $price;
 $sql = "UPDATE PlayerAssets SET cash = cash + '$totalAddition' WHERE username = '$user'";
 $conn->query($sql);
 
+//Update the PlayerTransactions Table
+$sql = "INSERT INTO PlayerTransactions VALUES ('$user', '$symbol', CURRENT_TIMESTAMP, '$quantity', '$price', 'SELL')";
+$conn->query($sql);
+
 
 
 

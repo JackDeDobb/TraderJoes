@@ -16,11 +16,6 @@ while($row = $result->fetch_assoc()) {
 }
 
 
-while($row = $result->fetch_assoc()) {
-		$tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td></tr>";
-}
-
-
 
 $tableString .= "</table>";
 $conn->close();
