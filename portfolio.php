@@ -145,9 +145,10 @@ echo $tableString2;
       echo $tableString;
     ?>
 
+    <h3>Related Articles</h3>
+
 	<?php
-		echo "<h3>Related Articles</h3>";
-		echo "<div class='box'>";
+		echo "<div class=\"box\">";
 		$get_request = "http://finance.yahoo.com/rss/headline?s=" . $stocks;
 		$myXMLData = file_get_contents($get_request);
 		$xml=simplexml_load_string($myXMLData);
