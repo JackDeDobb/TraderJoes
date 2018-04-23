@@ -131,7 +131,7 @@ echo $tableString;
 				}
 			}
 			else {
-				echo $xml->channel->item[1]->title . "<br>";
+				"<h3>" . echo $xml->channel->item[1]->title . "<br>";
 				echo $xml->channel->item[1]->description . "<br>";
 				echo $xml->channel->item[1]->pubDate . "<br>";
 				echo $xml->channel->item[1]->link . "<br>";
@@ -152,7 +152,7 @@ echo $tableString;
 				}
 			}
 			else {
-				echo $xml->channel->item[2]->title . "<br>";
+				"<h3>" . echo $xml->channel->item[2]->title . "<br>";
 				echo $xml->channel->item[2]->description . "<br>";
 				echo $xml->channel->item[2]->pubDate . "<br>";
 				echo $xml->channel->item[2]->link . "<br>";
@@ -173,7 +173,7 @@ echo $tableString;
 				}
 			}
 			else {
-				echo $xml->channel->item[3]->title . "<br>";
+				echo "<h3>" . $xml->channel->item[3]->title . "<br>";
 				echo $xml->channel->item[3]->description . "<br>";
 				echo $xml->channel->item[3]->pubDate . "<br>";
 				echo $xml->channel->item[3]->link . "<br>";
@@ -194,7 +194,7 @@ echo $tableString;
 				}
 			}
 			else {
-				echo $xml->channel->item[4]->title . "<br>";
+				echo "<h3>" . $xml->channel->item[4]->title . "<br>";
 				echo $xml->channel->item[4]->description . "<br>";
 				echo $xml->channel->item[4]->pubDate . "<br>";
 				echo $xml->channel->item[4]->link . "<br>";
@@ -215,7 +215,7 @@ echo $tableString;
 				}
 			}
 			else {
-				echo $xml->channel->item[5]->title . "<br>";
+				echo "<h3>" . $xml->channel->item[5]->title . "<br>";
 				echo $xml->channel->item[5]->description . "<br>";
 				echo $xml->channel->item[5]->pubDate . "<br>";
 				echo $xml->channel->item[5]->link . "<br>";
