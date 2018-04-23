@@ -150,6 +150,21 @@
         });
 				drawChart(symbol);
 			}
+
+
+
+			function renderGraphDates(){
+				var symbol = $("#demo-name").val().toUpperCase();
+				var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol+"&apikey=S4TYOA5YDZJBLT1K";
+				$.getJSON(url, function(data) {
+            //console.log(data);
+						//$("#currPrice").innerHTML = "Current Price: " + data["Stock Quotes"]["0"]["2. price"];
+						$("#currPrice").text("Current Price: $" + data["Stock Quotes"]["0"]["2. price"]);
+        });
+				drawChart(symbol);
+			}
+
+
     </script>
 	</head>
 	<body class="subpage">
@@ -229,7 +244,7 @@
 
 
 
-				<form action="javascript:displayPrice()">
+				<form action="javascript:renderGraphDates()">
 					<div class="row uniform">
 						<div class="6u 12u$(xsmall)">
 							<input type="text" name="demo-name" id="demo-start-date" value="" placeholder="Start Date" />
@@ -243,7 +258,7 @@
 
 
 
-				
+
 
 
     </body>
