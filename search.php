@@ -16,50 +16,86 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+      //google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2004',  1000,      400],
-          ['2005',  1170,      460],
-          ['2006',  660,       1120],
-          ['2007',  1030,      540]
-        ]);
+			function drawChart(symbol){
+        // API code
+        var currentPrice;
+        var thered;
+        var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
+        $.getJSON(param, function(info) {
+            //console.log(data);
+            //drawChart(data, symbol);
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"
+            ];
 
-        var options = {
-          title: 'Company Performance',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
+            var data = new google.visualization.DataTable();
+            data.addColumn('date', 'Day');
+            data.addColumn('number', 'Price');
 
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+            console.log(Object.keys(info["Time Series (Daily)"]));
 
-        chart.draw(data, options);
+            Object.keys(info["Time Series (Daily)"]).forEach(function(day){
+              var year = parseInt(day.substring(0, 4));
+              var month = parseInt(day.substring(5, 7));
+              var day2 = parseInt(day.substring(8));
+              //console.log("Year: "+year+" Day: "+day2+" Month"+month);
+              data.addRow([
+                {v: new Date(year, month, day2), f: (monthNames[month]+' '+day2.toString()+', '+year.toString())},
+                Number(info["Time Series (Daily)"][day]["4. close"])
+              ]);
+            });
+
+            var options = {
+              title: 'Price of ' + symbol + ' Over Time',
+              curveType: 'function'/*,
+              legend: { position: 'bottom' }*/
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        });
+
+        // //sending to PHP
+        // var xmlhttp = new XMLHttpRequest();
+        // xmlhttp.onreadystatechange = function(){
+        //   //function for the front end
+        //   //this code will be executed when servers sends back response
+        //   //call this.responseText to get the response from server
+        //   $("#retData").innerHTML = this.responseText;
+        //   // above text sets returned data in HTML, good test to see php working
+        // };
+        //
+        // // need to write a script called processInput.php that takes the input
+        // // and processes it
+        // xmlhttp.open("GET", "http://mocktrading.web.engr.illinois.edu/processInput.php?q=" + symbol, true);
+        // xmlhttp.send();
       }
 
       // example function for getting json and sending info to sever
-      function printData(){
-        var symbol = $("#myText").val();
-        var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+symbol.toUpperCase()+'&interval=15min&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
-        $.getJSON(param, function(data) {
-            console.log(data);
-        });
-
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function(){
-          //function for the front end
-          //this code will be executed when servers sends back response
-          //call this.responseText to get the response from server
-          $("#retData").innerHTML = this.responseText;
-          // above text sets returned data in HTML, good test to see php working
-        };
-
-        // need to write a script called processInput.php that takes the input
-        // and processes it
-        xmlhttp.open("GET", "processInput.php?q=" + symbol, true);
-        xmlhttp.send();
-      }
+      // function printData(){
+      //   var symbol = $("#myText").val();
+      //   var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+symbol.toUpperCase()+'&interval=15min&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
+      //   $.getJSON(param, function(data) {
+      //       console.log(data);
+      //   });
+			//
+      //   var xmlhttp = new XMLHttpRequest();
+      //   xmlhttp.onreadystatechange = function(){
+      //     //function for the front end
+      //     //this code will be executed when servers sends back response
+      //     //call this.responseText to get the response from server
+      //     $("#retData").innerHTML = this.responseText;
+      //     // above text sets returned data in HTML, good test to see php working
+      //   };
+			//
+      //   // need to write a script called processInput.php that takes the input
+      //   // and processes it
+      //   xmlhttp.open("GET", "processInput.php?q=" + symbol, true);
+      //   xmlhttp.send();
+      // }
 
 			function buyStock(){
 				var symbol = $("#demo-name").val().toUpperCase();
@@ -94,6 +130,7 @@
 						//$("#currPrice").innerHTML = "Current Price: " + data["Stock Quotes"]["0"]["2. price"];
 						$("#currPrice").text("Current Price: $" + data["Stock Quotes"]["0"]["2. price"]);
         });
+				drawChart(symbol);
 			}
     </script>
 	</head>
@@ -124,7 +161,7 @@
 
 
       <body>
-        <div id="curve_chart" style="width: 1500px; height: 500px"></div>
+        <div id="curve_chart" style="width: 1000px; height: 500px"></div>
 
 
 
