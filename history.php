@@ -1,3 +1,34 @@
+<?php
+include 'credentials.php';
+session_start();
+$user = $_SESSION['login_user'];
+echo "User: " . $user;
+
+$sql = "SELECT * FROM PlayerTransaction WHERE username = '$user'";
+$result = $conn->query($sql);
+
+
+$tableString = "<table><tr><th>Symbol</th><th>Time Traded</th><th>Quantity</th><th>Price Per Stock</th><th>Buy/Sell</th></tr>";
+
+
+while($row = $result->fetch_assoc()) {
+		$avgVal = money_format('%i', $row["total_investment"] / $row["quantity_stocks"]);
+		$tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["time_traded"] . "</td><td>" . $row["quantity_stocks"]. "</td><td>" . $row["price_per_stock"] . "</td><td>" . $row["buy_or_sell"] . "</td></tr>";
+}
+
+
+
+	$tableString .= "</table>";
+	$conn->close();
+	echo $tableString;
+?>
+
+
+
+
+
+
+
 <!DOCTYPE HTML>
 <html>
 	<head>
