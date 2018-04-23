@@ -17,15 +17,15 @@
 				<div class="inner">
 					<a href="https://wiki.illinois.edu/wiki/display/cs411sp18/Trader+Joe%2527s" class="logo"><strong>Trader Joe's</strong></a>
 					<nav id="nav">
-						<a href="index.html">Home</a>
-						<a href="search.html">Search</a>
+						<a href="index.php">Home</a>
+						<a href="search.php">Search</a>
 						<a href="portfolio.php">Portfolio</a>
 						<?php
 							session_start();
 							if(empty($_SESSION['login_user'])) {
-								echo '<button onclick="location.href = \'login.html\'" class="button alt">Login</button>';
+								echo '<button onclick="location.href = \'login.php\'" class="button alt">Login</button>';
 							} else {
-								echo '<button onclick="location.href = \'logout.html\'" class="button alt">Logout</button>';
+								echo '<button onclick="location.href = \'logout.php\'" class="button alt">Logout</button>';
 							}
 						?>
 					</nav>
