@@ -176,7 +176,7 @@ echo $tableString2;
 			<footer id="footer">
 				<div class="inner">
 
-					<h3</h3>>Get in touch</h3>
+					<h3>Get in touch</h3>
 
 					<form action="#" method="post">
 
