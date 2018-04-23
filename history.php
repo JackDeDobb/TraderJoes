@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Projection by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
 <html>
 	<head>
 		<title>Generic - Projection by TEMPLATED</title>
@@ -11,9 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-	<body class="subpage">
+	<body class="subpage" onload="testTable">
 
-		<!-- Header -->
+		 <!--Header-->
 		<header id="header">
 			<div class="inner">
 				<a href="https://wiki.illinois.edu/wiki/display/cs411sp18/Trader+Joe%2527s" class="logo"><strong>Trader Joe's</strong></a>
@@ -35,60 +30,17 @@
 			</div>
 		</header>
 
-		<!-- Three -->
-			<section id="three" class="wrapper">
-				<div class="inner">
-					<header class="align-center">
-						<h2>Login</h2>
-						<p>Enter Your Username & Password</p>
-					</header>
-			</section>
 
-
-			<body>
-		<table width="100%" border = "1" cellpadding="10">
+		<!--HERE INSERT ALL CODE FOR HISTORY-->
 
 
 
-			<tr>
-			<td align="center" width="41%">
-				<table width="640" border="0" cellpadding="3">
-					<td width="45%">
-						<div class="center">
-							<h4>Sign In:</h4>
-							<form action="sign_in.php" method="get">
-								<p align= "left">
-								 Username:&nbsp <input name="username" type="text" /><br/>
-								 Password:&nbsp <input name="password" type="password" /><br/>
-								<input name="Sign In" type="submit" value="Sign In" /><br/>
-								</p>
-							</form>
 
-							<h4>Sign Up:</h4>
-							<form action="sign_up.php" method="get">
-								<p align= "left">
-								Requested Username:<br/> <input name="username" type="text" /><br/>
-								Requested Password:<br/> <input name="password" type="password" /><br/>
-								Email:<br/> <input name="email" type="text" /><br/>
-								<input name="Sign Up" type="submit" value="Sign Up" />
-								</p>
-								<br/>
-							</form>
-						</div>
-					</td>
-					<td width="41%">
-						<div class="center">
-							<br/> <br/> <br/>
-						</div>
-					</td>
-				</table>
-			    </td>
-			</tr>
-		</table>
-		<br/>
-	</body>
 
-		<!-- Footer -->
+
+
+
+		 <!--Footer-->
 			<footer id="footer">
 				<div class="inner">
 
@@ -123,11 +75,12 @@
 				</div>
 			</footer>
 
-		<!-- Scripts -->
+		 <!--Scripts-->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
 
 	</body>
 </html>

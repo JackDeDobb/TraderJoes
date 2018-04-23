@@ -107,6 +107,7 @@
 					<a href="index.php">Home</a>
 					<a href="search.php">Search</a>
 					<a href="portfolio.php">Portfolio</a>
+					<a href="history.php">History</a>
 					<?php
 						session_start();
 						if(empty($_SESSION['login_user'])) {
