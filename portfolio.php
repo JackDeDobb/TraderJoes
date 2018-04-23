@@ -162,8 +162,8 @@ echo $tableString2;
 					}
 				}
 				else {
-					echo "<h4>" . $xml->channel->item[1]->title . "</h4>";
-					echo date_format($xml->channel->item[1]->pubDate, "m/d/Y") . "<br>";
+					echo "<h5>" . $xml->channel->item[1]->title . "</h5>";
+					echo $xml->channel->item[1]->pubDate . "<br>";
 					echo $xml->channel->item[1]->description . "<br>";
 					echo $xml->channel->item[1]->link . "<br>";
 				}
