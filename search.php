@@ -154,14 +154,23 @@
 
 			function renderGraphDates(){
 				var symbol = $("#tick_sym").val().toUpperCase();
-				console.log(symbol);
-				var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol+"&apikey=S4TYOA5YDZJBLT1K";
-				$.getJSON(url, function(data) {
-            //console.log(data);
-						//$("#currPrice").innerHTML = "Current Price: " + data["Stock Quotes"]["0"]["2. price"];
-						$("#currPrice").text("Current Price: $" + data["Stock Quotes"]["0"]["2. price"]);
-        });
-				drawChart(symbol);
+				//console.log(symbol);
+				//var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol+"&apikey=S4TYOA5YDZJBLT1K";
+				// $.getJSON(url, function(data) {
+        //     //console.log(data);
+				// 		//$("#currPrice").innerHTML = "Current Price: " + data["Stock Quotes"]["0"]["2. price"];
+				// 		//$("#currPrice").text("Current Price: $" + data["Stock Quotes"]["0"]["2. price"]);
+				//
+        // });
+				var start = document.getElementById("start-date").value;
+				var end =  document.getElementById("end-date").value;
+				start = new Date(parseInt(start.substring(0,4)), parseInt(start.substring(5,7)), parseInt(start.substring(8)));
+				end = new Date(end.substring(0,4)), parseInt(end.substring(5,7)), parseInt(end.substring(8)))
+				drawChartRanges(symbol, start, end);
+			}
+
+			function drawChartRanges(symbol, start, end){
+				
 			}
 
 
@@ -247,11 +256,14 @@
 				<form action="javascript:renderGraphDates()">
 					<div class="row uniform">
 						<div class="6u 12u$(xsmall)">
-							<input type="text" id="demo-start-date" placeholder="Start Date" />
+							<input type="date" id="start-date" placeholder="Start Date" />
 						</div>
 						<div class="6u$ 12u$(xsmall)">
-							<input type="text" id="demo-end-date" placeholder="End Date" />
+							<input type="date" id="end-date" placeholder="End Date" />
 						</div>
+					</div>
+					<div>
+						<input type = "submit" value = "Render Graph">
 					</div>
 				</form>
 
