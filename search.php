@@ -251,15 +251,7 @@
 					var getRequest = 'http://finance.yahoo.com/rss/headline?s='+ symbol;
 
 document.getElementById("indexft").innerHTML = symbol;
-					var xmlHttp = new XMLHttpRequest();
-    			xmlHttp.onreadystatechange = function() {
-        	if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-            	callback(xmlHttp.responseText);
-    			}
-    			xmlHttp.open("GET", getRequest, true); // true for asynchronous
-    			xmlHttp.send(null);
-
-					document.getElementById("indexft").innerHTML = xmlHttp.responseText;
+					
 				}
   </script>
 
