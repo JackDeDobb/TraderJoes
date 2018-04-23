@@ -196,7 +196,6 @@
           <div class="row">
             <div class="3u 12u$(small)">
               <ul class="actions vertical">
-
                 <li><a href="#" class="button alt"></a></li>
               </ul>
             </div>
@@ -204,9 +203,7 @@
 						<form action="javascript:buyStock()">
 	            <div class="3u 12u$(small)">
 	              <ul class="actions vertical small">
-
 									<input type = "submit" value = "Buy">
-
 	              </ul>
 	            </div>
 						</form>
@@ -232,7 +229,7 @@
 
 
 
-				<form method="post" action="#">
+				<form action="javascript:renderGraphDates()">
 					<div class="row uniform">
 						<div class="6u 12u$(xsmall)">
 							<input type="text" name="demo-name" id="demo-start-date" value="" placeholder="Start Date" />
@@ -240,8 +237,9 @@
 						<div class="6u$ 12u$(xsmall)">
 							<input type="email" name="demo-email" id="demo-end-date" value="" placeholder="End Date" />
 						</div>
-					</div>
 				</form>
+
+
 
 
     </body>
