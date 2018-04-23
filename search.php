@@ -250,10 +250,21 @@
 				function loadArticles(symbol) {
 					var getRequest = 'http://finance.yahoo.com/rss/headline?s='+ symbol;
 
+
 document.getElementById("indexft").innerHTML = "test to start";
+
 
 					var xmlHttp = new XMLHttpRequest();
 
+
+					xmlHttp.onreadystatechange = function() {
+						if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+								callback(xmlHttp.responseText);
+					};
+
+
+					document.getElementById("indexft").innerHTML = xmlHttp.responseText;
+				}
 
 
 document.getElementById("indexft").innerHTML = "test to end";
