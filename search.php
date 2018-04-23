@@ -40,11 +40,8 @@
         // API code
         //var currentPrice;
         //var thered;
-				console.log("Here");
         var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
         $.getJSON(param, function(info) {
-            //console.log(data);
-            //drawChart(data, symbol);
             const monthNames = ["January", "February", "March", "April", "May", "June",
               "July", "August", "September", "October", "November", "December"
             ];
@@ -173,8 +170,6 @@
 			function drawChartRanges(symbol, start, end){
 				var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
 				$.getJSON(param, function(info) {
-						//console.log(data);
-						//drawChart(data, symbol);
 						const monthNames = ["January", "February", "March", "April", "May", "June",
 							"July", "August", "September", "October", "November", "December"
 						];
@@ -189,15 +184,18 @@
 							var year = parseInt(day.substring(0, 4));
 							var month = parseInt(day.substring(5, 7));
 							var day2 = parseInt(day.substring(8));
+							var obj = new Date(year, month, day2);
 							//console.log("Year: "+year+" Day: "+day2+" Month"+month);
-							data.addRow([
-								{v: new Date(year, month, day2), f: (monthNames[month]+' '+day2.toString()+', '+year.toString())},
-								Number(info["Time Series (Daily)"][day]["4. close"])
-							]);
+							if(obj >= start && obj <= end){
+								data.addRow([
+									{v: obj, f: (monthNames[month]+' '+day2.toString()+', '+year.toString())},
+									Number(info["Time Series (Daily)"][day]["4. close"])
+								]);
+							}
 						});
 
 						var options = {
-							title: 'Price of ' + symbol + ' Over Time',
+							title: 'Price of ' + symbol + ' Over Specified Range',
 							curveType: 'function'
 						};
 
