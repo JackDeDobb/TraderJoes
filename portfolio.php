@@ -148,7 +148,7 @@ echo $tableString2;
 
     <!DOCTYPE HTML>
 	<html>
-	<body>
+		<h3>Related Articles</h3>
 		<div class="box">
 			<p>
 			<?php
@@ -170,8 +170,8 @@ echo $tableString2;
 			?>	
 			</p>
 		</div>
-	</body>
 	</html>
+
 		 <!--Footer-->
 			<footer id="footer">
 				<div class="inner">
