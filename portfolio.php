@@ -159,11 +159,11 @@ echo $tableString2;
 		}
 		else {
 			for($i = 1, $i < 3; $i++) {
-				echo "<a href=\"" . $xml->channel->item[$i]->link . "\">";
+				echo "<a href=\"" . $xml->channel->item[1]->link . "\">";
 				echo "<div class=\"box\">";
-				echo "<h5>" . $xml->channel->item[$i]->title . "</h5>";
-				echo $xml->channel->item[$i]->pubDate . "<br>";
-				echo $xml->channel->item[$i]->description . "<br>";
+				echo "<h5>" . $xml->channel->item[1]->title . "</h5>";
+				echo $xml->channel->item[1]->pubDate . "<br>";
+				echo $xml->channel->item[1]->description . "<br>";
 				echo "</div>";
 				echo "</a>";
 			}
