@@ -16,7 +16,25 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
-      //google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(sampleStartChart);
+
+			function sampleStartChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Price'],
+          ['2004',  1000],
+          ['2005',  1170],
+          ['2006',  660],
+          ['2007',  1030]
+        ]);
+
+        var options = {
+          title: 'Enter in Ticker Symbol for Graph',
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
 
 			function drawChart(symbol){
         // API code
