@@ -121,7 +121,7 @@ echo $tableString;
 	<div class="box">
 		<p>
 		<?php
-			$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=msft");
+			$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=nvda");
 			$xml=simplexml_load_string($myXMLData);
 
 			if($xml == false) {
@@ -142,7 +142,7 @@ echo $tableString;
 	<div class="box">
 		<p>
 		<?php
-			$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=msft");
+			$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=nvda");
 			$xml=simplexml_load_string($myXMLData);
 
 			if($xml == false) {
@@ -163,7 +163,7 @@ echo $tableString;
 	<div class="box">
 		<p>
 		<?php
-			$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=msft");
+			$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=nvda");
 			$xml=simplexml_load_string($myXMLData);
 
 			if($xml == false) {
@@ -184,7 +184,7 @@ echo $tableString;
 	<div class="box">
 		<p>
 		<?php
-			$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=msft");
+			$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=nvda");
 			$xml=simplexml_load_string($myXMLData);
 
 			if($xml == false) {
@@ -205,7 +205,7 @@ echo $tableString;
 	<div class="box">
 		<p>
 		<?php
-			$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=msft");
+			$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=nvda");
 			$xml=simplexml_load_string($myXMLData);
 
 			if($xml == false) {
