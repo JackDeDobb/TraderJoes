@@ -251,10 +251,12 @@
 					var getRequest = 'http://finance.yahoo.com/rss/headline?s='+ symbol;
 
 					var xmlHttp = new XMLHttpRequest();
-    			xmlHttp.open( "GET", getRequest, false ); // false for synchronous request
-    			xmlHttp.send( null );
-
-					document.write(<div class="box">HELLO</div>);
+    			xmlHttp.onreadystatechange = function() {
+        	if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            	callback(xmlHttp.responseText);
+    			}
+    			xmlHttp.open("GET", getRequest, true); // true for asynchronous 
+    			xmlHttp.send(null);
 
 					document.getElementById("1").innerHTML = xmlHttp.responseText;
 				}
