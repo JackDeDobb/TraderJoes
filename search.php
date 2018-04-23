@@ -248,8 +248,11 @@
 
   <script>
 				function loadArticles(symbol) {
-					var getRequest = 'http://finance.yahoo.com/rss/headline?s='+ 'yahoo';
-					document.getElementById("1").innerHTML = symbol;
+					var getRequest = 'http://finance.yahoo.com/rss/headline?s='+ symbol;
+
+
+
+					document.getElementById("1").innerHTML = getRequest;
 				}
   </script>
 
