@@ -271,7 +271,7 @@
 
 					document.getElementById("indexft").innerHTML = "test to end";
 
-					var content = xmlDoc.getElementByTagName("chanel")[0].childNodes[0].nodeValue;
+					var content = xmlDoc.getElementsByTagName("chanel")[0].getElementsByTagName("description")[0].childNodes[0].nodeValue;
 
 					document.getElementById("indexft").innerHTML = content;
 
