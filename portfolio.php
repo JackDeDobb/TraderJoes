@@ -152,7 +152,7 @@ echo $tableString2;
 		<div class="box">
 			<p>
 			<?php
-				$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=nvda");
+				$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=fb");
 				$xml=simplexml_load_string($myXMLData);
 
 				if($xml == false) {
@@ -163,7 +163,7 @@ echo $tableString2;
 				}
 				else {
 					echo "<h5>" . $xml->channel->item[1]->title . "</h5>";
-					echo date("Y-d-m", $xml->channel->item[1]->pubDate) . "<br>";
+					echo $xml->channel->item[1]->pubDate . "<br>";
 					echo $xml->channel->item[1]->description . "<br>";
 					echo $xml->channel->item[1]->link . "<br>";
 				}
