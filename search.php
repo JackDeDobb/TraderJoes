@@ -227,8 +227,6 @@
 
 
 
-				<div class="row">
-
 					<form action="javascript:buyStock()">
 						<div class="6u 12u$(small)">
 							<ul class="actions vertical small">
@@ -236,8 +234,6 @@
 							</ul>
 						</div>
 					</form>
-
-				</div>
 
 
 
