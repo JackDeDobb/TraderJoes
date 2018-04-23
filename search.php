@@ -67,8 +67,7 @@
 
             var options = {
               title: 'Price of ' + symbol + ' Over Time',
-              curveType: 'function'/*,
-              legend: { position: 'bottom' }*/
+              curveType: 'function'
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
