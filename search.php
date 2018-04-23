@@ -239,7 +239,7 @@
 
 
 
-      <form action="javascript:displayPrice()">
+      <form action="javascript:displayPrice()" method="POST">
         <div class="row uniform">
           <div class="6u 12u$(xsmall)">
             <input type="text" name="symbol" id="tick_sym" value="<?php echo "$symbol";?>" placeholder="Ticker Symbol" />
@@ -312,7 +312,7 @@
 		<h3>Related Articles</h3>
 
 		<?php
-		$get_request = "http://finance.yahoo.com/rss/headline?s=" . "aapl";
+		$get_request = "http://finance.yahoo.com/rss/headline?s=" . "yahoo" . $_POST['symbol'];
 		$myXMLData = file_get_contents($get_request);
 		$xml=simplexml_load_string($myXMLData);
 		if($xml == false) {
