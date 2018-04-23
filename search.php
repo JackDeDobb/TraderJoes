@@ -101,6 +101,57 @@
 
 
 
+			function renderOneYear() {
+				var symbol = $("#tick_sym").val().toUpperCase();
+				var currYear = new Date().getFullYear();
+
+
+				var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
+				$.getJSON(param, function(info) {
+						const monthNames = ["January", "February", "March", "April", "May", "June",
+							"July", "August", "September", "October", "November", "December"
+						];
+
+						var data = new google.visualization.DataTable();
+						data.addColumn('date', 'Day');
+						data.addColumn('number', 'Price');
+
+						console.log(Object.keys(info["Time Series (Daily)"]));
+
+						Object.keys(info["Time Series (Daily)"]).forEach(function(day){
+							var year = parseInt(day.substring(0, 4));
+							var month = parseInt(day.substring(5, 7));
+							var day2 = parseInt(day.substring(8));
+							var obj = new Date(year, month, day2);
+							//console.log("Year: "+year+" Day: "+day2+" Month"+month);
+							if(year == currYear){
+								data.addRow([
+									{v: obj, f: (monthNames[month-1]+' '+day2.toString()+', '+year.toString())},
+									Number(info["Time Series (Daily)"][day]["4. close"])
+								]);
+							}
+						});
+
+						var options = {
+							title: 'Price of ' + symbol + ' Over Specified Range',
+							curveType: 'function'
+						};
+
+						var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+						chart.draw(data, options);
+				});
+
+
+
+
+
+
+
+			}
+
+
+
 			function renderGraphDates(){
 				var symbol = $("#tick_sym").val().toUpperCase();
 				var start = document.getElementById("start-date").value;
