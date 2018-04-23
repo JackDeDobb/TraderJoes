@@ -13,12 +13,9 @@ $totalInvestmentNum = 0;
 while($row = $result->fetch_assoc()) {
 		$avgVal = money_format('%i', $row["total_investment"] / $row["quantity_stocks"]);
 		$tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td></tr>";
-		echo "['" . $row["ticker_symbol"] . "'," . $row["total_investment"] . "],";
 		$totalInvestmentNum += $row["total_investment"] ;
 }
-?>
 
-<?php
 $tableString = "<table><tr><th>Symbol</th><th>Quantity</th><th>Total Investment</th><th>Average Value</th></tr>";
 ?>
 
