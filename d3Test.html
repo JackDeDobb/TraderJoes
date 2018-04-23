@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      //google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart(data, symbol) {
+        console.log(data["Time Series (Daily)"]);
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"
+        ];
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('date', 'Day');
+        data.addColumn('number', 'Price');
+
+        var temp = data["Time Series (Daily)"];
+        var dates = Object.keys(temp);
+        var num = dates.length;
+
+        for(var i = 0; i < num; i++){
+          var day = dates[i];
+          var day2 = parseInt(day.substring(0, 4));
+          var month = parseInt(day.substring(5, 7));
+          var year = parseInt(day.substring(8));
+          console.log("Year: "+year+" Day: "+day2+" Month"+month);
+          data.addRow([
+            {v: new Date(year, month, day2), f: (monthNames[month]+' '+day2.toString()+', '+year.toString())},
+            data["Time Series (Daily)"][day]["4. close"]
+          ]);
+        }
+
+        var options = {
+          title: 'Price of ' + symbol + ' Over Time',
+          curveType: 'function'/*,
+          legend: { position: 'bottom' }*/
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+
+      // example function for getting json and sending info to sever
+      function printData(){
+        // API code
+        var symbol = /*$("#myText").val()*/ "MMM";
+        var currentPrice;
+        var thered;
+        var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
+        $.getJSON(param, function(info) {
+            //console.log(data);
+            //drawChart(data, symbol);
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"
+            ];
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('date', 'Day');
+            data.addColumn('number', 'Price');
+
+            console.log(Object.keys(info["Time Series (Daily)"]));
+
+            Object.keys(info["Time Series (Daily)"]).forEach(function(day){
+              var year = parseInt(day.substring(0, 4));
+              var month = parseInt(day.substring(5, 7));
+              var day2 = parseInt(day.substring(8));
+              //console.log("Year: "+year+" Day: "+day2+" Month"+month);
+              data.addRow([
+                {v: new Date(year, month, day2), f: (monthNames[month]+' '+day2.toString()+', '+year.toString())},
+                Number(info["Time Series (Daily)"][day]["4. close"])
+              ]);
+            });
+            //var num = dates.length;
+
+            // for(var i = 0; i < num; i++){
+            //   var day = dates[i];
+            //   var day2 = parseInt(day.substring(0, 4));
+            //   var month = parseInt(day.substring(5, 7));
+            //   var year = parseInt(day.substring(8));
+            //   console.log("Year: "+year+" Day: "+day2+" Month"+month);
+            //   data.addRow([
+            //     {v: new Date(year, month, day2), f: (monthNames[month]+' '+day2.toString()+', '+year.toString())},
+            //     data["Time Series (Daily)"][day]["4. close"]
+            //   ]);
+            // }
+
+            var options = {
+              title: 'Price of ' + symbol + ' Over Time',
+              curveType: 'function'/*,
+              legend: { position: 'bottom' }*/
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        });
+
+        // //sending to PHP
+        // var xmlhttp = new XMLHttpRequest();
+        // xmlhttp.onreadystatechange = function(){
+        //   //function for the front end
+        //   //this code will be executed when servers sends back response
+        //   //call this.responseText to get the response from server
+        //   $("#retData").innerHTML = this.responseText;
+        //   // above text sets returned data in HTML, good test to see php working
+        // };
+        //
+        // // need to write a script called processInput.php that takes the input
+        // // and processes it
+        // xmlhttp.open("GET", "http://mocktrading.web.engr.illinois.edu/processInput.php?q=" + symbol, true);
+        // xmlhttp.send();
+      }
+    </script>
+
+  </head>
+
+  <body>
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+    <!-- <svg width="960" height="500"></svg> -->
+    <form>
+      <input type="button" value="Submit" onclick="printData()">
+    </form>
+  </body>
+
+</html>
