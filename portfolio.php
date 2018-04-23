@@ -146,7 +146,32 @@ echo $tableString2;
 
 
 
+    <!DOCTYPE HTML>
+<html>
+<body>
+	<div class="box">
+		<p>
+		<?php
+			$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=nvda");
+			$xml=simplexml_load_string($myXMLData);
 
+			if($xml == false) {
+				echo "Failed loading XML: ";
+				foreach(libxml_get_errors() as $error) {
+					echo "<br>", $error->message;
+				}
+			}
+			else {
+				echo "<h3>" . $xml->channel->item[1]->title . "</h3><br>";
+				echo $xml->channel->item[1]->pubDate . "<br>";
+				echo $xml->channel->item[1]->description . "<br>";
+				echo $xml->channel->item[1]->link . "<br>";
+			}
+		?>	
+		</p>
+	</div>
+</body>
+</html>
 		 <!--Footer-->
 			<footer id="footer">
 				<div class="inner">
