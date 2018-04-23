@@ -169,7 +169,7 @@
 							var day2 = parseInt(day.substring(8));
 							var obj = new Date(year, month, day2);
 							//console.log("Year: "+year+" Day: "+day2+" Month"+month);
-							if(counter <= 31){
+							if(counter <= 24){
 								counter = counter + 1
 								data.addRow([
 									{v: obj, f: (monthNames[month-1]+' '+day2.toString()+', '+year.toString())},
