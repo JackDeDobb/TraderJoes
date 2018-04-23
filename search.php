@@ -72,10 +72,7 @@
 
 
 
-			function loadArticles(symbol) {
-				var getRequest = 'http://finance.yahoo.com/rss/headline?s='+ 'yahoo';
-				echo "<h5>HELLLOOOOOOOO</h5>";
-			}
+
 
 
 
@@ -246,7 +243,12 @@
 				</form>
 
 
-
+  <script>
+				function loadArticles(symbol) {
+					var getRequest = 'http://finance.yahoo.com/rss/headline?s='+ 'yahoo';
+					document.write("<h5>HELLLOOOOOOOO</h5>")
+				}
+  </script>
 
 
 
