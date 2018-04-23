@@ -264,14 +264,6 @@
 
 
 
-					<form action="javascript:buyStock()">
-						<div class="6u 12u$(small)">
-							<ul class="actions vertical small">
-								<input type = "submit" value = "Buy">
-							</ul>
-						</div>
-					</form>
-
 
 
 
