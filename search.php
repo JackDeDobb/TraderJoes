@@ -227,21 +227,29 @@
 
 					<div class="row">
 
-						<form action="javascript:buyStock()">
+						<form action="javascript:renderOneDay()">
 							<div class="3u 12u$(small)">
 								<ul class="actions vertical small">
-									<input type = "submit" value = "Buy">
+									<input type = "submit" value = "Past Day">
 								</ul>
 							</div>
 						</form>
 
-						<form action="javascript:sellStock()">
+						<form action="javascript:renderOneWeek()">
 						<div class="3u 12u$(small)">
 							<ul class="actions vertical small">
-								<input type = "submit" value = "Sell">
+								<input type = "submit" value = "Past Week">
 							</ul>
 						</div>
 					</form>
+
+					<form action="javascript:renderOneMonth()">
+					<div class="3u 12u$(small)">
+						<ul class="actions vertical small">
+							<input type = "submit" value = "Past Month">
+						</ul>
+					</div>
+				</form>
 
 					<div class="3u$ 12u$(small)">
 						<ul class="actions vertical small">
