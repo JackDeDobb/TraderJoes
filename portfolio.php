@@ -147,7 +147,6 @@ echo $tableString2;
 
 	<h3>Related Articles</h3>
 	<div class="box">
-		<p>
 		<?php
 			$get_request = "http://finance.yahoo.com/rss/headline?s=" . $stocks;
 			$myXMLData = file_get_contents($get_request);
@@ -166,10 +165,8 @@ echo $tableString2;
 				echo $xml->channel->item[1]->link . "<br>";
 			}
 		?>	
-		</p>
 	</div>
 	<div class="box">
-		<p>
 		<?php
 			if($xml == false) {
 				echo "Failed loading XML: ";
@@ -184,7 +181,6 @@ echo $tableString2;
 				echo $xml->channel->item[2]->link . "<br>";
 			}
 		?>	
-		</p>
 	</div>
 
 		 <!--Footer-->
