@@ -5,21 +5,18 @@ $user = $_SESSION['login_user'];
 echo "User: " . $user;
 
 
-$sql = "SELECT * FROM Stocks WHERE username = '$user'";
+$sql = "SELECT * FROM PlayerTransactions WHERE username = '$user'";
 $result = $conn->query($sql);
 
-	$tableString = "<table><tr><th>Symbol</th><th>Quantity</th><th>Total Investment</th><th>Average Value</th></tr>";
-
-while($row = $result->fetch_assoc()) {
-		$avgVal = money_format('%i', $row["total_investment"] / $row["quantity_stocks"]);
-		$tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td></tr>";
-}
+$tableString = "<table><tr><th>Symbol</th><th>Quantity</th><th>Total Investment</th><th>Average Value</th></tr>";
 
 
 
-	$tableString .= "</table>";
-	$conn->close();
-	echo $tableString;
+
+
+$tableString .= "</table>";
+$conn->close();
+echo $tableString;
 ?>
 
 
