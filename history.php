@@ -8,18 +8,15 @@ echo "User: " . $user;
 $sql = "SELECT * FROM Stocks WHERE username = '$user'";
 $result = $conn->query($sql);
 
+	$tableString = "<table><tr><th>Symbol</th><th>Quantity</th><th>Total Investment</th><th>Average Value</th></tr>";
 
-$totalInvestmentNum = 0;
 while($row = $result->fetch_assoc()) {
 		$avgVal = money_format('%i', $row["total_investment"] / $row["quantity_stocks"]);
 		$tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td></tr>";
-		$totalInvestmentNum += $row["total_investment"] ;
 }
 
-$tableString = "<table><tr><th>Symbol</th><th>Quantity</th><th>Total Investment</th><th>Average Value</th></tr>";
-?>
 
-<?php
+
 	$tableString .= "</table>";
 	$conn->close();
 	echo $tableString;
