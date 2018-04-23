@@ -13,7 +13,10 @@ $quantity = 1;
 
 //INSERT DATA CHECKS HERE
 
-
+if($price == 0) {
+	echo "Ticker not found, unable to buy!";
+	return;
+}
 
 
 
