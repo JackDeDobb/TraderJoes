@@ -13,7 +13,9 @@ GROUP BY Game.username";
 $result = $conn->query($sql);
 
 // $tableString = "<table><tr><th>User</th><th>User</th><th>Unique Stocks Owned</th>";
-
+while($row = $result->fetch_assoc()) {
+	echo $row
+}
 
 // while($row = $result->fetch_assoc()) {
 // 		$tableString .= "<tr><td>" . $row["username"]. "</td><td>" . $row[1]. "</td><td>" "</td></tr>";
@@ -24,7 +26,7 @@ $result = $conn->query($sql);
 // $tableString .= "</table>";
 // $conn->close();
 // echo $tableString;
-echo $result
+
 ?>
 
 
