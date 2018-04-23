@@ -162,8 +162,10 @@ echo $tableString2;
 			while($xml->channel->item[$i] != false) {
 				echo "<a href=\"" . $xml->channel->item[$i]->link . "\">";
 				echo "<div class=\"box\">";
+				echo "<header>"
 				echo "<h5>" . $xml->channel->item[$i]->title . "</h5>";
-				echo $xml->channel->item[$i]->pubDate . "<br>";
+				echo "<p>" . $xml->channel->item[$i]->pubDate . "</p>";
+				echo "</header>"
 				echo $xml->channel->item[$i]->description . "<br>";
 				echo "</div>";
 				echo "</a>";
