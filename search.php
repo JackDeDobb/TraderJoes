@@ -244,12 +244,12 @@
 
 
 
-<p id="insert"></p>
+<div class="box" id="1"></div>
 
   <script>
 				function loadArticles(symbol) {
 					var getRequest = 'http://finance.yahoo.com/rss/headline?s='+ 'yahoo';
-					document.getElementById("insert").innerHTML = "HELLO";
+					document.getElementById("1").innerHTML = "HELLO";
 				}
   </script>
 
