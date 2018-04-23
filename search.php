@@ -255,13 +255,13 @@
 
 
 
-
+					var xhttp = new XMLHttpRequest();
 					xhttp.onreadystatechange = function() {
-						if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-								callback(xmlHttp.responseText);
+						if (xhttp.readyState == 4 && xhttp.status == 200)
+								callback(xhttp.responseText);
 					};
 					xhttp.open("GET", getRequest, true);
-					xhttp.send();
+					xhttp.send(null);
 
 
 					document.getElementById("indexft").innerHTML = "test to end";
