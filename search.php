@@ -249,7 +249,7 @@
   <script>
 				function loadArticles(symbol) {
 					var getRequest = 'http://finance.yahoo.com/rss/headline?s='+ 'yahoo';
-					document.getElementById("1").innerHTML = "HELLO";
+					document.getElementById("1").innerHTML = symbol;
 				}
   </script>
 
