@@ -21,12 +21,12 @@
 						<a href="search.html">Search</a>
 						<a href="portfolio.php">Portfolio</a>
 						<?php
-						session_start();
-						if(empty($_SESSION['login_user'])) {
+							session_start();
+							if(empty($_SESSION['login_user'])) {
 								echo '<button onclick="location.href = \'login.html\'" class="button alt">Login</button>';
-						} else {
+							} else {
 								echo '<button onclick="location.href = \'logout.html\'" class="button alt">Logout</button>';
-						}
+							}
 						?>
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
