@@ -101,9 +101,8 @@
 
 
 
-			function renderOneYear() {
+			function renderOneYear(numDatesBack) {
 				var symbol = $("#tick_sym").val().toUpperCase();
-				var currYear = new Date().getFullYear();
 
 
 				var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
@@ -124,7 +123,7 @@
 							var day2 = parseInt(day.substring(8));
 							var obj = new Date(year, month, day2);
 							//console.log("Year: "+year+" Day: "+day2+" Month"+month);
-							if(counter <= 252){
+							if(counter <= numDatesBack){
 								counter = counter + 1
 								data.addRow([
 									{v: obj, f: (monthNames[month-1]+' '+day2.toString()+', '+year.toString())},
@@ -148,7 +147,6 @@
 
 			function renderOneMonth() {
 				var symbol = $("#tick_sym").val().toUpperCase();
-				var currYear = new Date().getFullYear();
 
 
 				var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
@@ -192,7 +190,6 @@
 
 			function renderOneWeek() {
 				var symbol = $("#tick_sym").val().toUpperCase();
-				var currYear = new Date().getFullYear();
 
 
 				var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
@@ -385,7 +382,7 @@
 				</form>
 
 
-				<form action="javascript:renderOneYear()">
+				<form action="javascript:renderOneYear(252)">
 				<div class="3u 12u$(small)">
 					<ul class="actions vertical small">
 						<input type = "submit" value = "Past Year">
