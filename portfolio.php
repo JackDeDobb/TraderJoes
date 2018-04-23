@@ -152,7 +152,7 @@ echo $tableString2;
 		$myXMLData = file_get_contents($get_request);
 		$xml=simplexml_load_string($myXMLData);
 		if($xml != false) {
-			echo "<a href=\"" . $xml->channel->item[1]->link . "\">"
+			echo "<a href=\"" . $xml->channel->item[1]->link . "\">";
 		}
 		echo "<div class=\"box\">";
 		if($xml == false) {
@@ -168,7 +168,7 @@ echo $tableString2;
 		}
 		echo "</div>";
 		if($xml != false) {
-			echo "</a>"
+			echo "</a>";
 		}
 	?>	
 	
