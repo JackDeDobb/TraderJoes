@@ -131,7 +131,7 @@ echo $tableString;
 				}
 			}
 			else {
-				echo $xml->channel->item[1]->title . "<br>";
+				echo "<h3>" . $xml->channel->item[1]->title . "</h3><br>";
 				echo $xml->channel->item[1]->description . "<br>";
 				echo $xml->channel->item[1]->pubDate . "<br>";
 				echo $xml->channel->item[1]->link . "<br>";
