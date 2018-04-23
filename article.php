@@ -15,7 +15,8 @@ while($row = $result->fetch_assoc()) {
 		$tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["time_traded"]. "</td><td>" . $row["quantity_stocks"] . "</td><td>" . $row["price_per_stock"] . "</td><td>" . $row["buy_or_sell"] . "</td></tr>";
 }
 ?>
-
+<!DOCTYPE HTML>
+<html>
 <h3>Table</h3>
 
 	<h4>Default</h4>
@@ -63,18 +64,4 @@ while($row = $result->fetch_assoc()) {
 			</tfoot>
 		</table>
 	</div>
-// $myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=msft");
-// $xml=simplexml_load_string($myXMLData);
-
-// if($xml == false) {
-// 	echo "Failed loading XML: ";
-// 	foreach(libxml_get_errors() as $error) {
-// 		echo "<br>", $error->message;
-// 	}
-// }
-// else {
-// 	echo $xml->channel->item[1]->title . "<br>";
-// 	echo $xml->channel->item[1]->description . "<br>";
-// 	echo $xml->channel->item[1]->pubDate . "<br>";
-// 	echo $xml->channel->item[1]->link . "<br>";
-// }
+</html>
