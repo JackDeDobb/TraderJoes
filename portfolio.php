@@ -163,7 +163,7 @@ echo $tableString2;
 				}
 				else {
 					echo "<h5>" . $xml->channel->item[1]->title . "</h5>";
-					echo $xml->channel->item[1]->pubDate . "<br>";
+					echo date("Y-d-m", $xml->channel->item[1]->pubDate) . "<br>";
 					echo $xml->channel->item[1]->description . "<br>";
 					echo $xml->channel->item[1]->link . "<br>";
 				}
