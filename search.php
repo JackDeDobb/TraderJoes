@@ -254,7 +254,7 @@
     			xmlHttp.open( "GET", getRequest, false ); // false for synchronous request
     			xmlHttp.send( null );
 
-
+					document.write(<div class="box">HELLO</div>)
 
 					document.getElementById("1").innerHTML = xmlHttp.responseText;
 				}
