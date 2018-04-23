@@ -149,6 +149,7 @@ echo $tableString2;
 	<div class="box">
 		<p>
 		<?php
+			echo $stocks;
 			$myXMLData = file_get_contents("http://finance.yahoo.com/rss/headline?s=fb");
 			$xml=simplexml_load_string($myXMLData);
 
