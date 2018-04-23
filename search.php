@@ -250,8 +250,12 @@
 				function loadArticles(symbol) {
 					var getRequest = 'http://finance.yahoo.com/rss/headline?s='+ symbol;
 
+
+
+					var xmlHttp = new XMLHttpRequest();
+
 document.getElementById("indexft").innerHTML = symbol;
-					
+
 				}
   </script>
 
