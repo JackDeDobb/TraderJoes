@@ -229,12 +229,7 @@
 
 
 
-
-
-
-
-
-				<form method="post" action="#">
+				<form action="javascript:displayPrice()">
 					<div class="row uniform">
 						<div class="6u 12u$(xsmall)">
 							<input type="text" name="demo-name" id="demo-start-date" value="" placeholder="Start Date" />
@@ -244,6 +239,11 @@
 						</div>
 					</div>
 				</form>
+
+
+
+
+				
 
 
     </body>
