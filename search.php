@@ -222,21 +222,55 @@
             </ul>
           </div>
 
+          </div>
 
-					<div class="6u 12u$(small)">
+
+					<div class="row">
+						<div class="3u 12u$(small)">
+							<ul class="actions vertical">
+								<li><a href="#" class="button alt"></a></li>
+							</ul>
+						</div>
+
+						<form action="javascript:buyStock()">
+							<div class="3u 12u$(small)">
+								<ul class="actions vertical small">
+									<input type = "submit" value = "Buy">
+								</ul>
+							</div>
+						</form>
+
+						<form action="javascript:sellStock()">
+						<div class="3u 12u$(small)">
+							<ul class="actions vertical small">
+								<input type = "submit" value = "Sell">
+							</ul>
+						</div>
+					</form>
+
+					<div class="3u$ 12u$(small)">
 						<ul class="actions vertical small">
-							<input type = "submit" value = "Buy">
+							<li><a href="history.php" class="button small fit">History</a></li>
 						</ul>
+					</div>
+
 					</div>
 
 
 
 
-          </div>
 
         </div>
 
 
+
+					<form action="javascript:buyStock()">
+						<div class="6u 12u$(small)">
+							<ul class="actions vertical small">
+								<input type = "submit" value = "Buy">
+							</ul>
+						</div>
+					</form>
 
 
 
