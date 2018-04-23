@@ -148,11 +148,10 @@ echo $tableString2;
     <h3>Related Articles</h3>
 
 	<?php
-		echo "<div class=\"box\">";
 		$get_request = "http://finance.yahoo.com/rss/headline?s=" . $stocks;
 		$myXMLData = file_get_contents($get_request);
 		$xml=simplexml_load_string($myXMLData);
-
+		echo "<div class=\"box\">";
 		if($xml == false) {
 			echo "Failed loading XML: ";
 			foreach(libxml_get_errors() as $error) {
