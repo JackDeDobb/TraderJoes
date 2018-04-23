@@ -63,7 +63,7 @@
 					</div>
 
 					<footer>
-						<a href="login.html" class="button big">Get Started</a>
+						<a href="login.php" class="button big">Get Started</a>
 					</footer>
 				</div>
 			</section>
