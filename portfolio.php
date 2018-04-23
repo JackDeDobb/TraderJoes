@@ -150,7 +150,6 @@ echo $tableString2;
 		<p>
 		<?php
 			$get_request = "http://finance.yahoo.com/rss/headline?s=" . $stocks;
-			echo $get_request;
 			$myXMLData = file_get_contents($get_request);
 			$xml=simplexml_load_string($myXMLData);
 
@@ -165,6 +164,24 @@ echo $tableString2;
 				echo $xml->channel->item[1]->pubDate . "<br>";
 				echo $xml->channel->item[1]->description . "<br>";
 				echo $xml->channel->item[1]->link . "<br>";
+			}
+		?>	
+		</p>
+	</div>
+	<div class="box">
+		<p>
+		<?php
+			if($xml == false) {
+				echo "Failed loading XML: ";
+				foreach(libxml_get_errors() as $error) {
+					echo "<br>", $error->message;
+				}
+			}
+			else {
+				echo "<h5>" . $xml->channel->item[2]->title . "</h5>";
+				echo $xml->channel->item[2]->pubDate . "<br>";
+				echo $xml->channel->item[2]->description . "<br>";
+				echo $xml->channel->item[2]->link . "<br>";
 			}
 		?>	
 		</p>
