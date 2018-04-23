@@ -158,8 +158,8 @@ echo $tableString2;
 			}
 		}
 		else {
-			for($i = 1; $i < 5; $i++) {
-				echo $i;
+			$i = 1;
+			while($xml->channel->item[$i] != false) {
 				echo "<a href=\"" . $xml->channel->item[$i]->link . "\">";
 				echo "<div class=\"box\">";
 				echo "<h5>" . $xml->channel->item[$i]->title . "</h5>";
@@ -167,6 +167,7 @@ echo $tableString2;
 				echo $xml->channel->item[$i]->description . "<br>";
 				echo "</div>";
 				echo "</a>";
+				$i++;
 			}
 		}	
 	?>	
