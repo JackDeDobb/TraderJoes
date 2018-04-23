@@ -227,11 +227,6 @@
 
 
 				<div class="row">
-					<div class="6u 12u$(small)">
-						<ul class="actions vertical">
-							<li><a href="#" class="button alt"></a></li>
-						</ul>
-					</div>
 
 					<form action="javascript:buyStock()">
 						<div class="6u 12u$(small)">
@@ -240,20 +235,6 @@
 							</ul>
 						</div>
 					</form>
-
-					<form action="javascript:sellStock()">
-					<div class="6u 12u$(small)">
-						<ul class="actions vertical small">
-							<input type = "submit" value = "Sell">
-						</ul>
-					</div>
-				</form>
-
-				<div class="6u$ 12u$(small)">
-					<ul class="actions vertical small">
-						<li><a href="history.php" class="button small fit">History</a></li>
-					</ul>
-				</div>
 
 				</div>
 
