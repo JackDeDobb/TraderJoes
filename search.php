@@ -242,7 +242,7 @@
       <form action="javascript:displayPrice()">
         <div class="row uniform">
           <div class="6u 12u$(xsmall)">
-            <input type="text" name="symbol" id="tick_sym" value="" placeholder="Ticker Symbol" />
+            <input type="text" name="symbol" id="tick_sym" value='<?php echo "$var";?>' placeholder="Ticker Symbol" />
           </div>
 			</form>
 
@@ -307,7 +307,7 @@
 
     </body>
 
-	
+
 
 		<h3>Related Articles</h3>
 
