@@ -13,3 +13,4 @@ chmod 644 search.php
 chmod 644 login.php
 chmod 644 logout.php
 chmod 644 history.php
+chmod 644 article.php

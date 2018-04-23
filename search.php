@@ -115,7 +115,7 @@
       // }
 
 			function buyStock(){
-				var symbol = $("#demo-name").val().toUpperCase();
+				var symbol = $("#tick_sym").val().toUpperCase();
 				window.location.href = "buy.php?q=" + symbol;
 
 				// var xmlhttp = new XMLHttpRequest();
@@ -135,12 +135,12 @@
 			}
 
 			function sellStock(){
-				var symbol = $("#demo-name").val().toUpperCase();
+				var symbol = $("#tick_sym").val().toUpperCase();
 				window.location.href = "sell.php?q=" + symbol;
 			}
 
 			function displayPrice(){
-				var symbol = $("#demo-name").val().toUpperCase();
+				var symbol = $("#tick_sym").val().toUpperCase();
 				var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol+"&apikey=S4TYOA5YDZJBLT1K";
 				$.getJSON(url, function(data) {
             //console.log(data);
@@ -149,6 +149,22 @@
         });
 				drawChart(symbol);
 			}
+
+
+
+			function renderGraphDates(){
+				var symbol = $("#tick_sym").val().toUpperCase();
+				console.log(symbol);
+				var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="+symbol+"&apikey=S4TYOA5YDZJBLT1K";
+				$.getJSON(url, function(data) {
+            //console.log(data);
+						//$("#currPrice").innerHTML = "Current Price: " + data["Stock Quotes"]["0"]["2. price"];
+						$("#currPrice").text("Current Price: $" + data["Stock Quotes"]["0"]["2. price"]);
+        });
+				drawChart(symbol);
+			}
+
+
     </script>
 	</head>
 	<body class="subpage">
@@ -185,7 +201,7 @@
       <form action="javascript:displayPrice()">
         <div class="row uniform">
           <div class="6u 12u$(xsmall)">
-            <input type="text" name="symbol" id="demo-name" value="" placeholder="Ticker Symbol" />
+            <input type="text" name="symbol" id="tick_sym" value="" placeholder="Ticker Symbol" />
           </div>
 			</form>
 
@@ -195,7 +211,6 @@
           <div class="row">
             <div class="3u 12u$(small)">
               <ul class="actions vertical">
-
                 <li><a href="#" class="button alt"></a></li>
               </ul>
             </div>
@@ -203,9 +218,7 @@
 						<form action="javascript:buyStock()">
 	            <div class="3u 12u$(small)">
 	              <ul class="actions vertical small">
-
 									<input type = "submit" value = "Buy">
-
 	              </ul>
 	            </div>
 						</form>
@@ -228,6 +241,23 @@
         </div>
 
 				<h2 id="currPrice">Current Price: </h2>
+
+
+
+				<form action="javascript:renderGraphDates()">
+					<div class="row uniform">
+						<div class="6u 12u$(xsmall)">
+							<input type="text" id="demo-start-date" placeholder="Start Date" />
+						</div>
+						<div class="6u$ 12u$(xsmall)">
+							<input type="text" id="demo-end-date" placeholder="End Date" />
+						</div>
+					</div>
+				</form>
+
+
+
+
 
 
 
