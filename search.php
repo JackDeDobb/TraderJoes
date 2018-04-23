@@ -271,6 +271,10 @@
 
 					document.getElementById("indexft").innerHTML = "test to end";
 
+					var content = xmlDoc.getElementByTagName("chanel").childNodes[0].nodeValue;
+
+					document.getElementById("indexft").innerHTML = content;
+
 				}
   </script>
 
