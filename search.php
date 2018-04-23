@@ -264,7 +264,12 @@
 					xhttp.send(null);
 
 
-					document.getElementById("indexft").innerHTML = xhttp.responseText + "hello";
+					var text, parser, xmlDoc;
+					parser = new DOMParser();
+					xmlDoc = parser.parseFromString(xhttp.responseText, "text/xml");
+
+
+					document.getElementById("indexft").innerHTML = "test to end";
 
 				}
   </script>
