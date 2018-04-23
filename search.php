@@ -251,7 +251,7 @@
 					var getRequest = 'http://finance.yahoo.com/rss/headline?s='+ symbol;
 
 
-document.getElementById("indexft").innerHTML = "test to start";
+					document.getElementById("indexft").innerHTML = "test to start";
 
 
 
@@ -264,11 +264,7 @@ document.getElementById("indexft").innerHTML = "test to start";
 					xhttp.send();
 
 
-					document.getElementById("indexft").innerHTML = xmlHttp.responseText;
-				}
-
-
-document.getElementById("indexft").innerHTML = "test to end";
+					document.getElementById("indexft").innerHTML = "test to end";
 
 				}
   </script>
