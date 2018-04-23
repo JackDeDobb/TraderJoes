@@ -9,22 +9,22 @@ echo "User: " . $user;
 $sql = "SELECT Games.username, COUNT(Stocks.username)
 FROM Stocks, Games
 WHERE Games.username = Stocks.username
-GROUP BY Game.username
-";
+GROUP BY Game.username";
 $result = $conn->query($sql);
 
-$tableString = "<table><tr><th>User</th><th>User</th><th>Unique Stocks Owned</th>";
+// $tableString = "<table><tr><th>User</th><th>User</th><th>Unique Stocks Owned</th>";
 
 
-while($row = $result->fetch_assoc()) {
-		$tableString .= "<tr><td>" . $row["username"]. "</td><td>" . $row[1]. "</td><td>" "</td></tr>";
-}
+// while($row = $result->fetch_assoc()) {
+// 		$tableString .= "<tr><td>" . $row["username"]. "</td><td>" . $row[1]. "</td><td>" "</td></tr>";
+// }
 
 
 
-$tableString .= "</table>";
-$conn->close();
-echo $tableString;
+// $tableString .= "</table>";
+// $conn->close();
+// echo $tableString;
+echo $result
 ?>
 
 
