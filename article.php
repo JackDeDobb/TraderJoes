@@ -19,51 +19,9 @@
 <!DOCTYPE HTML>
 <html>
 <body>
-<h3>Table</h3>
-	<h4>Default</h4>
-	<div class="table-wrapper">
-		<table>
-			<thead>
-				<tr>
-					<th>Name</th>
-					<th>Description</th>
-					<th>Price</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Item 1</td>
-					<td>Ante turpis integer aliquet porttitor.</td>
-					<td>29.99</td>
-				</tr>
-				<tr>
-					<td>Item 2</td>
-					<td>Vis ac commodo adipiscing arcu aliquet.</td>
-					<td>19.99</td>
-				</tr>
-				<tr>
-					<td>Item 3</td>
-					<td> Morbi faucibus arcu accumsan lorem.</td>
-					<td>29.99</td>
-				</tr>
-				<tr>
-					<td>Item 4</td>
-					<td>Vitae integer tempus condimentum.</td>
-					<td>19.99</td>
-				</tr>
-				<tr>
-					<td>Item 5</td>
-					<td>Ante turpis integer aliquet porttitor.</td>
-					<td>29.99</td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td colspan="2"></td>
-					<td>100.00</td>
-				</tr>
-			</tfoot>
-		</table>
+<h3>Box</h3>
+	<div class="box">
+		<p>Felis sagittis eget tempus primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Magna sed etiam ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus lorem ipsum dolor sit amet nullam.</p>
 	</div>
 </body>
 </html>
