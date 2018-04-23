@@ -236,9 +236,9 @@
 						<div class="6u$ 12u$(xsmall)">
 							<input type="date" id="end-date" placeholder="End Date" />
 						</div>
-					</div>
-					<div>
+						<div class="6u$ 12u$(xsmall)">
 						<input type = "submit" value = "Render Graph">
+						</div>
 					</div>
 				</form>
 
