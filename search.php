@@ -58,7 +58,7 @@
               var day2 = parseInt(day.substring(8));
               //console.log("Year: "+year+" Day: "+day2+" Month"+month);
               data.addRow([
-                {v: new Date(year, month, day2), f: (monthNames[month]+' '+day2.toString()+', '+year.toString())},
+                {v: new Date(year, month, day2), f: (monthNames[month-1]+' '+day2.toString()+', '+year.toString())},
                 Number(info["Time Series (Daily)"][day]["4. close"])
               ]);
             });
@@ -188,7 +188,7 @@
 							//console.log("Year: "+year+" Day: "+day2+" Month"+month);
 							if(obj >= start && obj <= end){
 								data.addRow([
-									{v: obj, f: (monthNames[month]+' '+day2.toString()+', '+year.toString())},
+									{v: obj, f: (monthNames[month-1]+' '+day2.toString()+', '+year.toString())},
 									Number(info["Time Series (Daily)"][day]["4. close"])
 								]);
 							}
