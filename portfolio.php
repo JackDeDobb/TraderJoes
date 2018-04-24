@@ -200,7 +200,7 @@ echo $tableString2;
 					echo "Bad" . "<br>";
 				}
 
-				echo $server_output . "<br>";
+				echo $server_output->neg . "<br>";
 				echo $xml->channel->item[$i]->description . "<br>";
 				echo "</div>";
 				echo "</a>";
