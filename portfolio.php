@@ -160,8 +160,12 @@ echo $tableString2;
 
 
                     $avgVal = money_format('%i', $row["total_investment"] / $row["quantity_stocks"]);
-                    $tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td></tr>";
-                    echo "['" . $row["ticker_symbol"] . "'," . $row["total_investment"] . "],";
+										if ($totalPos >= $totalNeg) {
+                    	$tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td><td>" . "Good" . "</td></tr>";
+										} else {
+											$tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td><td>" . "Bad" . "</td></tr>";
+										}
+										echo "['" . $row["ticker_symbol"] . "'," . $row["total_investment"] . "],";
                     $totalInvestmentNum += $row["total_investment"] ;
                     $stocks .= $row["ticker_symbol"] . ",";
                 }
