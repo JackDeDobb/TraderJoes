@@ -180,6 +180,9 @@ echo $tableString2;
 			}
 		}
 		else {
+			ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL,"http://text-processing.com/api/sentiment/");
+			curl_setopt($ch, CURLOPT_POST, 1);
 			$i = 1;
 			while($xml->channel->item[$i] != false) {
 				echo "<a href=\"" . $xml->channel->item[$i]->link . "\">";
@@ -188,11 +191,16 @@ echo $tableString2;
 				echo "<h5>" . $xml->channel->item[$i]->title . "</h5>";
 				echo "<p>" . $xml->channel->item[$i]->pubDate . "</p>";
 				echo "</header>";
+				curl_setopt($ch, CURLOPT_POSTFIELDS, "text=" . $xml->channel->item[$i]->description);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+				$server_output = curl_exec ($ch);
+				echo $server_output;
 				echo $xml->channel->item[$i]->description . "<br>";
 				echo "</div>";
 				echo "</a>";
 				$i++;
 			}
+			curl_close ($ch);
 		}
 	?>
 		 <!--Footer-->
