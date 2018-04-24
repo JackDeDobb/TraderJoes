@@ -101,6 +101,96 @@
 
 
 
+			function renderOneBack(numDatesBack) {
+				var symbol = $("#tick_sym").val().toUpperCase();
+
+
+				var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
+				$.getJSON(param, function(info) {
+						const monthNames = ["January", "February", "March", "April", "May", "June",
+							"July", "August", "September", "October", "November", "December"
+						];
+
+						var data = new google.visualization.DataTable();
+						data.addColumn('date', 'Day');
+						data.addColumn('number', 'Price');
+
+						console.log(Object.keys(info["Time Series (Daily)"]));
+						var counter = 0
+						Object.keys(info["Time Series (Daily)"]).forEach(function(day){
+							var year = parseInt(day.substring(0, 4));
+							var month = parseInt(day.substring(5, 7));
+							var day2 = parseInt(day.substring(8));
+							var obj = new Date(year, month, day2);
+							//console.log("Year: "+year+" Day: "+day2+" Month"+month);
+							if(counter <= numDatesBack){
+								counter = counter + 1
+								data.addRow([
+									{v: obj, f: (monthNames[month-1]+' '+day2.toString()+', '+year.toString())},
+									Number(info["Time Series (Daily)"][day]["4. close"])
+								]);
+							}
+						});
+
+						var options = {
+							title: 'Price of ' + symbol + ' Over Specified Range',
+							curveType: 'function'
+						};
+
+						var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+						chart.draw(data, options);
+				});
+			}
+
+
+
+
+			function renderOneDay() {
+				var symbol = $("#tick_sym").val().toUpperCase();
+
+
+				var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
+				$.getJSON(param, function(info) {
+						const monthNames = ["January", "February", "March", "April", "May", "June",
+							"July", "August", "September", "October", "November", "December"
+						];
+
+						var data = new google.visualization.DataTable();
+						data.addColumn('date', 'Day');
+						data.addColumn('number', 'Price');
+
+						console.log(Object.keys(info["Time Series (Daily)"]));
+						var counter = 0
+						Object.keys(info["Time Series (Daily)"]).forEach(function(day){
+							var year = parseInt(day.substring(0, 4));
+							var month = parseInt(day.substring(5, 7));
+							var day2 = parseInt(day.substring(8));
+							var obj = new Date(year, month, day2);
+							//console.log("Year: "+year+" Day: "+day2+" Month"+month);
+							if(counter <= numDatesBack){
+								counter = counter + 1
+								data.addRow([
+									{v: obj, f: (monthNames[month-1]+' '+day2.toString()+', '+year.toString())},
+									Number(info["Time Series (Daily)"][day]["4. close"])
+								]);
+							}
+						});
+
+						var options = {
+							title: 'Price of ' + symbol + ' Over Specified Range',
+							curveType: 'function'
+						};
+
+						var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+						chart.draw(data, options);
+				});
+			}
+
+
+
+
 			function renderGraphDates(){
 				var symbol = $("#tick_sym").val().toUpperCase();
 				var start = document.getElementById("start-date").value;
@@ -186,7 +276,7 @@
       <form action="javascript:displayPrice()">
         <div class="row uniform">
           <div class="6u 12u$(xsmall)">
-            <input type="text" name="symbol" id="tick_sym" value="<?php echo "$symbol";?>" placeholder="Ticker Symbol" />
+            <input type="text" name="symbol" id="tick_sym" placeholder="Ticker Symbol" />
           </div>
 			</form>
 
@@ -227,27 +317,39 @@
 
 					<div class="row">
 
-						<form action="javascript:buyStock()">
+						<form action="javascript:renderOneDay()">
 							<div class="3u 12u$(small)">
 								<ul class="actions vertical small">
-									<input type = "submit" value = "Buy">
+									<input type = "submit" value = "Past Day">
 								</ul>
 							</div>
 						</form>
 
-						<form action="javascript:sellStock()">
+						<form action="javascript:renderOneBack(5)">
 						<div class="3u 12u$(small)">
 							<ul class="actions vertical small">
-								<input type = "submit" value = "Sell">
+								<input type = "submit" value = "Past Week">
 							</ul>
 						</div>
 					</form>
 
-					<div class="3u$ 12u$(small)">
+					<form action="javascript:renderOneBack(20)">
+					<div class="3u 12u$(small)">
 						<ul class="actions vertical small">
-							<li><a href="history.php" class="button small fit">History</a></li>
+							<input type = "submit" value = "Past Month">
 						</ul>
 					</div>
+				</form>
+
+
+				<form action="javascript:renderOneBack(252)">
+				<div class="3u 12u$(small)">
+					<ul class="actions vertical small">
+						<input type = "submit" value = "Past Year">
+					</ul>
+				</div>
+				</form>
+
 
 					</div>
 
@@ -279,7 +381,7 @@
 
 
 
-<div class="box" id="indexft"></div>
+
 
   <script>
 				function loadArticles(symbol) {
@@ -321,6 +423,19 @@
 
 
 		<h3>Related Articles</h3>
+		<div class="box" id="indexft"></div>
+
+
+		<div class="box" id="box1"></div>
+		<div class="box" id="box2"></div>
+		<div class="box" id="box3"></div>
+		<div class="box" id="box4"></div>
+		<div class="box" id="box5"></div>
+		<div class="box" id="box6"></div>
+		<div class="box" id="box7"></div>
+		<div class="box" id="box8"></div>
+		<div class="box" id="box9"></div>
+		<div class="box" id="box10"></div>
 
 		<?php
 		$get_request = "http://finance.yahoo.com/rss/headline?s=" . "yahoo" . $_POST['symbol'];
