@@ -18,6 +18,13 @@ if($price == 0) {
 	return;
 }
 
+$sql = "SELECT cash FROM PlayerAssets WHERE username = '$user'";
+$result = $conn->query($sql);
+if($price > $result) {
+	echo "You do not have enough money to buy this quantity of stocks.";
+	return;
+}
+
 
 
 $sql = "SELECT * FROM Stocks WHERE username = '$user' AND ticker_symbol = '$symbol'";
