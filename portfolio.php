@@ -123,7 +123,7 @@ echo $tableString2;
 										$i = 1;
 										$totalPos = 0;
 										$totalNeg = 0;
-										while($xml->channel->item[$i] != false) {
+										while($xml->channel->item[$i] != false && i < 4) {
 											curl_setopt($ch, CURLOPT_POSTFIELDS, "text=" . $xml->channel->item[$i]->description);
 											curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 											$server_output = curl_exec ($ch);
