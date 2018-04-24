@@ -148,62 +148,55 @@
 
 			function renderOneDay() {
 				var symbol = $("#tick_sym").val().toUpperCase();
-
-
-				var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
+				var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='+symbol+'&interval=15min&outputsize=full&apikey=demoS4TYOA5YDZJBLT1K';
 				$.getJSON(param, function(info) {
-						const monthNames = ["January", "February", "March", "April", "May", "June",
-							"July", "August", "September", "October", "November", "December"
-						];
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"
+            ];
 
-						var data = new google.visualization.DataTable();
-						data.addColumn('date', 'Day');
-						data.addColumn('number', 'Price');
+            var data = new google.visualization.DataTable();
+            data.addColumn('date', 'Day');
+            data.addColumn('number', 'Price');
 
-						console.log(Object.keys(info["Time Series (Daily)"]));
-						var counter = 0
-						Object.keys(info["Time Series (Daily)"]).forEach(function(day){
-							var year = parseInt(day.substring(0, 4));
-							var month = parseInt(day.substring(5, 7));
-							var day2 = parseInt(day.substring(8));
-							var obj = new Date(year, month, day2);
-							//console.log("Year: "+year+" Day: "+day2+" Month"+month);
-							if(counter <= numDatesBack){
-								counter = counter + 1
-								data.addRow([
-									{v: obj, f: (monthNames[month-1]+' '+day2.toString()+', '+year.toString())},
-									Number(info["Time Series (Daily)"][day]["4. close"])
-								]);
-							}
-						});
+            console.log(Object.keys(info["Time Series (15min)"]));
 
-						var options = {
-							title: 'Price of ' + symbol + ' Over Specified Range',
-							curveType: 'function'
-						};
+            Object.keys(info["Time Series (15min)"]).forEach(function(day){
+              var year = parseInt(day.substring(0, 4));
+              var month = parseInt(day.substring(5, 7))-1;
+              var day2 = parseInt(day.substring(8,10));
+							var time = day.substring(11);
+              //console.log("Year: "+year+" Day: "+day2+" Month"+month);
+              data.addRow([
+                {v: new Date(year, month, day2), f: (monthNames[month-1]+' '+day2.toString()+', '+year.toString())},
+                Number(info["Time Series (Daily)"][day]["4. close"])
+              ]);
+            });
 
-						var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+            var options = {
+              title: 'Price of ' + symbol + ' Over Time',
+              curveType: 'function'
+            };
 
-						chart.draw(data, options);
-				});
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        });
 			}
-
-
 
 
 			function renderGraphDates(){
 				var symbol = $("#tick_sym").val().toUpperCase();
 				var start = document.getElementById("start-date").value;
 				var end =  document.getElementById("end-date").value;
-				start = new Date(parseInt(start.substring(0,4)), parseInt(start.substring(5,7)), parseInt(start.substring(8)));
-				end = new Date(parseInt(end.substring(0,4)), parseInt(end.substring(5,7)), parseInt(end.substring(8)));
+				start = new Date(parseInt(start.substring(0,4)), parseInt(start.substring(5,7))-1, parseInt(start.substring(8)));
+				end = new Date(parseInt(end.substring(0,4)), parseInt(end.substring(5,7))-1, parseInt(end.substring(8)));
 				drawChartRanges(symbol, start, end);
 			}
 
 			function drawChartRanges(symbol, start, end){
 				var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
 				$.getJSON(param, function(info) {
-						const monthNames = ["January", "February", "March", "April", "May", "June",
+						const monthNames = ["topPointer", "January", "February", "March", "April", "May", "June",
 							"July", "August", "September", "October", "November", "December"
 						];
 
@@ -215,13 +208,13 @@
 
 						Object.keys(info["Time Series (Daily)"]).forEach(function(day){
 							var year = parseInt(day.substring(0, 4));
-							var month = parseInt(day.substring(5, 7));
+							var month = parseInt(day.substring(5, 7))-1;
 							var day2 = parseInt(day.substring(8));
 							var obj = new Date(year, month, day2);
 							//console.log("Year: "+year+" Day: "+day2+" Month"+month);
 							if(obj >= start && obj <= end){
 								data.addRow([
-									{v: obj, f: (monthNames[month-1]+' '+day2.toString()+', '+year.toString())},
+									{v: obj, f: (monthNames[month]+' '+day2.toString()+', '+year.toString())},
 									Number(info["Time Series (Daily)"][day]["4. close"])
 								]);
 							}
@@ -269,7 +262,7 @@
 
       <body>
 				<h2 id="currPrice">Current Price: </h2>
-        <div id="curve_chart" style="width: 100%; height: 600px"></div>
+        <div id="curve_chart" style="width: 100%; margin-top: -40px; height: 600px;"></div>
 
 
 
