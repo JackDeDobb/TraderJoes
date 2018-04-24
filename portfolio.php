@@ -13,12 +13,6 @@ $liquidForLater = $row["cash"];
 $sql = "SELECT * FROM Stocks WHERE username = '$user'";
 $result = $conn->query($sql);
 echo $tableString2;
-
-
-
-echo $tableString2;
-
-
 ?>
 
 
