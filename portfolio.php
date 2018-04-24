@@ -196,9 +196,9 @@ echo $tableString2;
 				$server_output = curl_exec ($ch);
 				$json = json_decode($server_output, true);
 				if ($json['probability']['pos'] >= $json['probability']['neg']) {
-					echo "This article has a positive sentiment!" . "<br>";
+					echo "This article has a positive sentiment!" . "<br><br>";
 				} else {
-					echo "This article has a negative sentiment!" . "<br>";
+					echo "This article has a negative sentiment!" . "<br><br>";
 				}
 				echo $xml->channel->item[$i]->description . "<br>";
 				echo "</div>";
