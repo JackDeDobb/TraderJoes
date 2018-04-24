@@ -127,8 +127,8 @@ echo $tableString2;
 											curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 											$server_output = curl_exec ($ch);
 											$json = json_decode($server_output, true);
-											$totalPos += 0.6 * pow($json['probability']['pos'], 2);
-											$totalNeg += 1.5* pow($json['probability']['neg'], 2);
+											$totalPos += pow($json['probability']['pos'], 2);
+											$totalNeg += 2* pow($json['probability']['neg'], 2);
 											$i++;
 										}
 
