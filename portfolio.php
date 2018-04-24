@@ -13,6 +13,12 @@ $liquidForLater = $row["cash"];
 $sql = "SELECT * FROM Stocks WHERE username = '$user'";
 $result = $conn->query($sql);
 echo $tableString2;
+
+
+
+echo $tableString2;
+
+
 ?>
 
 
@@ -171,8 +177,8 @@ echo $tableString2;
 				echo "</a>";
 				$i++;
 			}
-		}	
-	?>	
+		}
+	?>
 		 <!--Footer-->
 			<footer id="footer">
 				<div class="inner">
