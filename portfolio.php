@@ -108,7 +108,7 @@ echo $tableString2;
                 while($row = $result->fetch_assoc()) {
 
 
-									$get_request = "http://finance.yahoo.com/rss/headline?s=" . "appl";
+									$get_request = "http://finance.yahoo.com/rss/headline?s=" . $row["ticker_symbol"];
 									$myXMLData = file_get_contents($get_request);
 									$xml=simplexml_load_string($myXMLData);
 									if($xml == false) {
@@ -161,9 +161,9 @@ echo $tableString2;
 
                     $avgVal = money_format('%i', $row["total_investment"] / $row["quantity_stocks"]);
 										if (pow($totalPos, 1/2) >= pow($totalNeg, 1/2)) {
-                    	$tableString .= "<tr><td>" . pow($totalNeg, 1/2) . "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td><td>" . "Good" . "</td></tr>";
+                    	$tableString .= "<tr><td>" . $row["ticker_symbol"] . "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td><td>" . "Good" . "</td></tr>";
 										} else {
-											$tableString .= "<tr><td>" . pow($totalNeg, 1/2) . "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td><td>" . "Bad" . "</td></tr>";
+											$tableString .= "<tr><td>" . $row["ticker_symbol"] . "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td><td>" . "Bad" . "</td></tr>";
 										}
 										echo "['" . $row["ticker_symbol"] . "'," . $row["total_investment"] . "],";
                     $totalInvestmentNum += $row["total_investment"] ;
