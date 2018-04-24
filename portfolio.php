@@ -129,12 +129,8 @@ echo $tableString2;
 											curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 											$server_output = curl_exec ($ch);
 											$json = json_decode($server_output, true);
-
-											if ($json['probability']['pos'] >= $json['probability']['neg']) {
-												echo "This article has a positive sentiment!" . "<br><br>";
-											} else {
-												echo "This article has a negative sentiment!" . "<br><br>";
-											}
+											$totalPos += $json['probability']['pos'];
+											$totalNeg += $json['probability']['neg']
 											$i++;
 										}
 										curl_close ($ch);
