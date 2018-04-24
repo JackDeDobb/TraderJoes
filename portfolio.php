@@ -123,12 +123,6 @@ echo $tableString2;
 										curl_setopt($ch, CURLOPT_POST, 1);
 										$i = 1;
 										while($xml->channel->item[$i] != false) {
-											echo "<a href=\"" . $xml->channel->item[$i]->link . "\">";
-											echo "<div class=\"box\">";
-											echo "<header>";
-											echo "<h5>" . $xml->channel->item[$i]->title . "</h5>";
-											echo "<p>" . $xml->channel->item[$i]->pubDate . "</p>";
-											echo "</header>";
 											curl_setopt($ch, CURLOPT_POSTFIELDS, "text=" . $xml->channel->item[$i]->description);
 											curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 											$server_output = curl_exec ($ch);
@@ -138,9 +132,6 @@ echo $tableString2;
 											} else {
 												echo "This article has a negative sentiment!" . "<br><br>";
 											}
-											echo $xml->channel->item[$i]->description . "<br>";
-											echo "</div>";
-											echo "</a>";
 											$i++;
 										}
 										curl_close ($ch);
