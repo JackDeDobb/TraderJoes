@@ -122,7 +122,8 @@ echo $tableString2;
 										curl_setopt($ch, CURLOPT_URL,"http://text-processing.com/api/sentiment/");
 										curl_setopt($ch, CURLOPT_POST, 1);
 										$i = 1;
-										$totalPos = 0
+										$totalPos = 0;
+										$totalNeg = 0;
 										while($xml->channel->item[$i] != false) {
 											curl_setopt($ch, CURLOPT_POSTFIELDS, "text=" . $xml->channel->item[$i]->description);
 											curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
