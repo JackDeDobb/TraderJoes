@@ -127,8 +127,9 @@ echo $tableString2;
 											curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 											$server_output = curl_exec ($ch);
 											$json = json_decode($server_output, true);
+											echo $json;
 											$totalPos += pow($json['probability']['pos'], 2);
-											$totalNeg += 2* pow($json['probability']['neg'], 2);
+											$totalNeg += pow($json['probability']['neg'], 2);
 											$i++;
 										}
 
@@ -159,7 +160,7 @@ echo $tableString2;
 
                     $avgVal = money_format('%i', $row["total_investment"] / $row["quantity_stocks"]);
 										if (pow($totalPos, 1/2) >= pow($totalNeg, 1/2)) {
-                    	$tableString .= "<tr><td>" . $row["ticker_symbol"] . "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td><td>" . "Good" . $totalPos. $totalNeg . "</td></tr>";
+                    	$tableString .= "<tr><td>" . $row["ticker_symbol"] . "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td><td>" . "Good" . "</td></tr>";
 										} else {
 											$tableString .= "<tr><td>" . $row["ticker_symbol"] . "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td><td>" . "Bad" . "</td></tr>";
 										}
