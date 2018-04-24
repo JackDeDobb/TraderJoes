@@ -5,7 +5,11 @@ $user = $_SESSION['login_user'];
 echo "User: " . $user;
 
 
-$sql = "SELECT * FROM PlayerTransactions WHERE username = '$user' ORDER BY time_traded DESC";
+$sql = "SELECT PlayerTransactions.ticker_symbol, PlayerTransactions.time_traded, PlayerTransactions.quantity_stocks, PlayerTransactions.price_per_stock, PlayerTransactions.buy_or_sell, Profile.date_created
+		FROM PlayerTransactions 
+		JOIN Profile ON Profile.username = PlayerTransactions.username 
+		WHERE username = '$user' 
+		ORDER BY time_traded DESC";
 $result = $conn->query($sql);
 
 $tableString = "<table><tr><th>Symbol</th><th>Time Traded</th><th>Quantity</th><th>Price Per Stock</th><th>Buy/Sell</th></tr>";
