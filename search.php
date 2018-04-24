@@ -216,15 +216,25 @@
 
 						console.log(Object.keys(info["Time Series (Daily)"]));
 
-						Object.keys(info["Time Series (Daily)"]).forEach(function(day){
+						var firstOne = true;
+						var startRangePrice = 0;
+
+						Object.keys(info["Time Series (Daily)"]).reverse().forEach(function(day){
 							var year = parseInt(day.substring(0, 4));
 							var month = parseInt(day.substring(5, 7))-1;
 							var day2 = parseInt(day.substring(8));
 							var obj = new Date(year, month, day2);
 							//console.log("Year: "+year+" Day: "+day2+" Month"+month);
+
 							if(obj >= start && obj <= end){
+								if(firstOne){
+									firstOne = false;
+									startRangePrice = Number(info["Time Series (Daily)"][day]["4. close"]);
+								}
+								var percentChange = ((Number(info["Time Series (Daily)"][day]["4. close"] - startRangePrice)) / startRangePrice).toFixed(4);
+								percentChange *= 100;
 								data.addRow([
-									{v: obj, f: (monthNames[month]+' '+day2.toString()+', '+year.toString())},
+									{v: obj, f: (monthNames[month]+' '+day2.toString()+', '+year.toString()+' ('+percentChange.toString()+'%)')},
 									Number(info["Time Series (Daily)"][day]["4. close"])
 								]);
 							}
