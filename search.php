@@ -46,7 +46,7 @@
             data.addColumn('date', 'Day');
             data.addColumn('number', 'Price');
 
-            console.log(Object.keys(info["Time Series (Daily)"]));
+            //console.log(Object.keys(info["Time Series (Daily)"]));
 
             Object.keys(info["Time Series (Daily)"]).forEach(function(day){
               var year = parseInt(day.substring(0, 4));
@@ -185,7 +185,7 @@
       <form action="javascript:displayPrice()">
         <div class="row uniform">
           <div class="6u 12u$(xsmall)">
-            <input type="text" name="symbol" id="tick_sym" value="<?php echo "$symbol";?>" placeholder="Ticker Symbol" />
+            <input type="text" name="symbol" id="tick_sym" placeholder="Ticker Symbol" />
           </div>
 			</form>
 
@@ -247,34 +247,54 @@
 <div class="box" id="indexft"></div>
 
   <script>
+
+
+
 				function loadArticles(symbol) {
-					var getRequest = 'http://finance.yahoo.com/rss/headline?s='+ symbol;
+					var getRequest = 'https://feeds.finance.yahoo.com/rss/2.0/headline?s='+symbol+'&region=US&lang=en-US';
 
 
-					document.getElementById("indexft").innerHTML = "test to start";
+					//document.getElementById("indexft").innerHTML = "test to start";
+
+					var text;
 
 
 
-					var xhttp = new XMLHttpRequest();
-					xhttp.onreadystatechange = function() {
-						if (xhttp.readyState == 4 && xhttp.status == 200)
-								callback(xhttp.responseText);
+					var x = new XMLHttpRequest();
+					x.open("GET", getRequest, true);
+					x.onreadystatechange = function () {
+						if (x.readyState == 4 && x.status == 200)
+						{
+							alert("In callback");
+							var parser = new DOMParser();
+							var test = parser.parseFromString(this.responseText, "text/xml");
+							getElems(test.documentElement);
+						}
 					};
-					xhttp.open("GET", getRequest, true);
-					xhttp.send(null);
+					x.send();
+
+					//console.log(text);
 
 
-					var text, parser, xmlDoc;
-					parser = new DOMParser();
-					xmlDoc = parser.parseFromString(xhttp.responseText, "text/xml");
 
+					//console.log(test);
 
-					document.getElementById("indexft").innerHTML = "test to end";
+					//var text, parser, xmlDoc;
+					//parser = new DOMParser();
+					//xmlDoc = parser.parseFromString(xhttp.responseText, "text/xml");
 
-					var content = xmlDoc.getElementsByTagName("chanel")[0].getElementsByTagName("description")[0].childNodes[0].nodeValue;
+					//console.log(xmlDoc.getElementsByTagName("channel")[1]/*.getElementsByTagName("description")[0].childNodes[0].nodeValue*/);
 
-					document.getElementById("indexft").innerHTML = content;
+					//document.getElementById("indexft").innerHTML = "test to end";
 
+					//var content = xmlDoc.getElementsByTagName("chanel")[0].getElementsByTagName("description")[0].childNodes[0].nodeValue;
+
+					//document.getElementById("indexft").innerHTML = content;
+
+				}
+
+				function getElems(xml){
+					console.log(xml);
 				}
   </script>
 
