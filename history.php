@@ -8,7 +8,7 @@ echo "User: " . $user;
 $sql = "SELECT PlayerTransactions.username, PlayerTransactions.ticker_symbol, PlayerTransactions.time_traded, PlayerTransactions.quantity_stocks, PlayerTransactions.price_per_stock, PlayerTransactions.buy_or_sell, Profile.date_created FROM PlayerTransactions INNER JOIN Profile ON Profile.username = PlayerTransactions.username WHERE Profile.username = '$user' ORDER BY time_traded DESC";
 $result = $conn->query($sql);
 
-$tableString = "<table><tr><th>Symbol</th><th>Time Traded</th><th>Quantity</th><th>Price Per Stock</th><th>Buy/Sell</th><th>Time Since Account Creation</th></tr>";
+$tableString = "<table><tr><th>Symbol</th><th>Time Traded</th><th>Quantity</th><th>Price Per Stock</th><th>Buy/Sell</th><th>Days Since Account Creation</th></tr>";
 
 while($row = $result->fetch_assoc()) {
 		$time_since = round((strtotime($row["time_traded"]) - strtotime($row["date_created"])) / (60 * 60 * 24));
