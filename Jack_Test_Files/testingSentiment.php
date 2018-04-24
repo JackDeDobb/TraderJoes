@@ -1,6 +1,6 @@
 <?php
 
-$get_request = "http://text-processing.com/api/sentiment/" . "yahoo" . $_POST['symbol'];
+$get_request = "http://text-processing.com/api/sentiment/";
 $myXMLData = file_get_contents($get_request);
 $xml=simplexml_load_string($myXMLData);
 if($xml == false) {
@@ -10,7 +10,7 @@ if($xml == false) {
   }
 }
 else {
-  echo 
+  echo $xml;
 }
 
 ?>
