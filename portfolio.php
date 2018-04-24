@@ -130,7 +130,7 @@ echo $tableString2;
 											$server_output = curl_exec ($ch);
 											$json = json_decode($server_output, true);
 											$totalPos += $json['probability']['pos'];
-											$totalNeg += $json['probability']['neg']
+											$totalNeg += $json['probability']['neg'];
 											$i++;
 										}
 										curl_close ($ch);
