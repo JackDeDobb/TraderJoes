@@ -108,33 +108,7 @@ echo $tableString2;
                 while($row = $result->fetch_assoc()) {
 
 
-									$get_request = "http://finance.yahoo.com/rss/headline?s=" . "appl";
-									$myXMLData = file_get_contents($get_request);
-									$xml=simplexml_load_string($myXMLData);
-									if($xml == false) {
-										echo "Failed loading XML: ";
-										foreach(libxml_get_errors() as $error) {
-											echo "<br>", $error->message;
-										}
-									}
-									else {
-										$ch = curl_init();
-										curl_setopt($ch, CURLOPT_URL,"http://text-processing.com/api/sentiment/");
-										curl_setopt($ch, CURLOPT_POST, 1);
-										$i = 1;
-										$totalNeg = 0
-										$totalPos = 0
-										while($xml->channel->item[$i] != false) {
-											curl_setopt($ch, CURLOPT_POSTFIELDS, "text=" . $xml->channel->item[$i]->description);
-											curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-											$server_output = curl_exec ($ch);
-											$json = json_decode($server_output, true);
-											$totalNeg += $json['probability']['neg'];
-											$totaPos += $json['probability']['pos'];
-											$i++;
-										}
-										curl_close ($ch);
-									}
+								
 
 
 
