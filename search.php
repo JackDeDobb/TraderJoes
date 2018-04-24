@@ -107,7 +107,7 @@
 
 				var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
 				$.getJSON(param, function(info) {
-						const monthNames = ["January", "February", "March", "April", "May", "June",
+						const monthNames = ["sentiment", "January", "February", "March", "April", "May", "June",
 							"July", "August", "September", "October", "November", "December"
 						];
 
