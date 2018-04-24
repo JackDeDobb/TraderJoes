@@ -11,7 +11,7 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,"http://text-processing.com/api/sentiment/");
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS,
-            "text=\"Facebook\"");
+            "text=\"kill yourself\"");
 
 // in real life you should use something like:
 // curl_setopt($ch, CURLOPT_POSTFIELDS,

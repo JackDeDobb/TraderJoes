@@ -194,6 +194,12 @@ echo $tableString2;
 				curl_setopt($ch, CURLOPT_POSTFIELDS, "text=" . $xml->channel->item[$i]->description);
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 				$server_output = curl_exec ($ch);
+				if ($server_output->pos >= $server_output->neg) {
+					echo "Good" . "<br>";
+				} else {
+					echo "Bad" . "<br>";
+				}
+
 				echo $server_output . "<br>";
 				echo $xml->channel->item[$i]->description . "<br>";
 				echo "</div>";
