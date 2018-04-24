@@ -100,7 +100,9 @@ echo $tableString2;
 
 
 
-
+						$ch = curl_init();
+						curl_setopt($ch, CURLOPT_URL,"http://text-processing.com/api/sentiment/");
+						curl_setopt($ch, CURLOPT_POST, 1);
 
 
                 $totalInvestmentNum = 0;
@@ -117,9 +119,6 @@ echo $tableString2;
 										}
 									}
 									else {
-										$ch = curl_init();
-										curl_setopt($ch, CURLOPT_URL,"http://text-processing.com/api/sentiment/");
-										curl_setopt($ch, CURLOPT_POST, 1);
 										$i = 1;
 										$totalPos = 0;
 										$totalNeg = 0;
@@ -132,7 +131,7 @@ echo $tableString2;
 											$totalNeg += pow($json['probability']['neg'], 2);
 											$i++;
 										}
-										curl_close ($ch);
+
 									}
 
 
@@ -168,6 +167,7 @@ echo $tableString2;
                     $totalInvestmentNum += $row["total_investment"] ;
                     $stocks .= $row["ticker_symbol"] . ",";
                 }
+								curl_close ($ch);
             ?>
           ]);
 
