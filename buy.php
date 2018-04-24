@@ -20,6 +20,7 @@ if($price == 0) {
 
 $sql = "SELECT cash FROM PlayerAssets WHERE username = '$user'";
 $result = $conn->query($sql);
+echo $result;
 if($price > $result) {
 	echo "You do not have enough money to buy this quantity of stocks.";
 	return;
