@@ -25,7 +25,7 @@ $server_output = curl_exec ($ch);
 curl_close ($ch);
 
 // further processing ....
-echo $server_output
+echo $server_output;
 
 
 
