@@ -12,7 +12,7 @@ $tableString = "<table><tr><th>Symbol</th><th>Time Traded</th><th>Quantity</th><
 
 while($row = $result->fetch_assoc()) {
 		$time_since = $row["time_traded"] - $row["date_created"];
-		$tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["time_traded"]. "</td><td>" . $row["quantity_stocks"] . "</td><td>" . $row["price_per_stock"] . "</td><td>" . $row["buy_or_sell"] . "</td><td>" . $time_since . "</td></tr>";
+		$tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["time_traded"]. "</td><td>" . $row["quantity_stocks"] . "</td><td>" . $row["price_per_stock"] . "</td><td>" . $row["buy_or_sell"] . "</td><td>" . $row["date_created"] . "</td></tr>";
 }
 
 
