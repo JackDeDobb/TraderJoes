@@ -11,7 +11,7 @@ $result = $conn->query($sql);
 $tableString = "<table><tr><th>Symbol</th><th>Time Traded</th><th>Quantity</th><th>Price Per Stock</th><th>Buy/Sell</th><th>Time Since Account Creation</th></tr>";
 
 while($row = $result->fetch_assoc()) {
-		$time_since = (strtotime($row["time_traded"]) - strtotime($row["date_created"])) / (60 * 60 * 24);
+		$time_since = round((strtotime($row["time_traded"]) - strtotime($row["date_created"])) / (60 * 60 * 24));
 		$tableString .= "<tr><td>" . $row["ticker_symbol"]. "</td><td>" . $row["time_traded"]. "</td><td>" . $row["quantity_stocks"] . "</td><td>" . $row["price_per_stock"] . "</td><td>" . $row["buy_or_sell"] . "</td><td>" . $time_since . "</td></tr>";
 }
 
