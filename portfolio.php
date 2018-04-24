@@ -180,7 +180,7 @@ echo $tableString2;
 			}
 		}
 		else {
-			ch = curl_init();
+			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL,"http://text-processing.com/api/sentiment/");
 			curl_setopt($ch, CURLOPT_POST, 1);
 			$i = 1;
