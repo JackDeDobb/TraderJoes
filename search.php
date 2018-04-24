@@ -107,7 +107,7 @@
 
 				var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
 				$.getJSON(param, function(info) {
-						const monthNames = ["sentiment", "January", "February", "March", "April", "May", "June",
+						const monthNames = ["January", "February", "March", "April", "May", "June",
 							"July", "August", "September", "October", "November", "December"
 						];
 
@@ -119,7 +119,7 @@
 						var counter = 0
 						Object.keys(info["Time Series (Daily)"]).forEach(function(day){
 							var year = parseInt(day.substring(0, 4));
-							var month = parseInt(day.substring(5, 7));
+							var month = parseInt(day.substring(5, 7))-1;
 							var day2 = parseInt(day.substring(8));
 							var obj = new Date(year, month, day2);
 							//console.log("Year: "+year+" Day: "+day2+" Month"+month);
@@ -206,7 +206,7 @@
 			function drawChartRanges(symbol, start, end){
 				var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
 				$.getJSON(param, function(info) {
-						const monthNames = ["topPointer", "January", "February", "March", "April", "May", "June",
+						const monthNames = ["January", "February", "March", "April", "May", "June",
 							"July", "August", "September", "October", "November", "December"
 						];
 
