@@ -8,7 +8,7 @@ echo "User: " . $user;
 $sql = "SELECT PlayerTransactions.ticker_symbol, PlayerTransactions.time_traded, PlayerTransactions.quantity_stocks, PlayerTransactions.price_per_stock, PlayerTransactions.buy_or_sell, Profile.date_created
 		FROM PlayerTransactions 
 		INNER JOIN Profile ON Profile.username = PlayerTransactions.username 
-		WHERE username = '$user' 
+		WHERE PlayerTransactions.username = '$user' 
 		ORDER BY time_traded DESC";
 $result = $conn->query($sql);
 
