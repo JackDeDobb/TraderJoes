@@ -38,7 +38,7 @@
 			function drawChart(symbol){
         var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
         $.getJSON(param, function(info) {
-            const monthNames = ["January", "February", "March", "April", "May", "June",
+            const monthNames = ["sentinenial", "January", "February", "March", "April", "May", "June",
               "July", "August", "September", "October", "November", "December"
             ];
 
@@ -107,7 +107,7 @@
 
 				var param = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol='+symbol.toUpperCase()+'&outputsize=full&apikey=S4TYOA5YDZJBLT1K';
 				$.getJSON(param, function(info) {
-						const monthNames = ["January", "February", "March", "April", "May", "June",
+						const monthNames = ["sentiment", "January", "February", "March", "April", "May", "June",
 							"July", "August", "September", "October", "November", "December"
 						];
 
@@ -126,7 +126,7 @@
 							if(counter <= numDatesBack){
 								counter = counter + 1
 								data.addRow([
-									{v: obj, f: (monthNames[month-1]+' '+day2.toString()+', '+year.toString())},
+									{v: obj, f: (monthNames[month]+' '+day2.toString()+', '+year.toString())},
 									Number(info["Time Series (Daily)"][day]["4. close"])
 								]);
 							}
@@ -415,20 +415,6 @@
 
 
 
-		<h3>Related Articles</h3>
-		<div class="box" id="indexft"></div>
-
-
-		<div class="box" id="box1"></div>
-		<div class="box" id="box2"></div>
-		<div class="box" id="box3"></div>
-		<div class="box" id="box4"></div>
-		<div class="box" id="box5"></div>
-		<div class="box" id="box6"></div>
-		<div class="box" id="box7"></div>
-		<div class="box" id="box8"></div>
-		<div class="box" id="box9"></div>
-		<div class="box" id="box10"></div>
 
 		<?php
 		$get_request = "http://finance.yahoo.com/rss/headline?s=" . "yahoo" . $_POST['symbol'];
