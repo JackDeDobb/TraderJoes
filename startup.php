@@ -55,50 +55,50 @@ if ($conn->query($sql) === TRUE) {
 
 
 
-$sql = "CREATE TABLE Leaderboard (
-username  VARCHAR(30) PRIMARY KEY,
-score     INTEGER     NOT NULL
-)";
-if ($conn->query($sql) === TRUE) {
-    echo "Table Leaderboard created successfully\n";
-} else {
-    echo "Error creating table Leaderboard: " . $conn->error;
-}
+// $sql = "CREATE TABLE Leaderboard (
+// username  VARCHAR(30) PRIMARY KEY,
+// score     INTEGER     NOT NULL
+// )";
+// if ($conn->query($sql) === TRUE) {
+//     echo "Table Leaderboard created successfully\n";
+// } else {
+//     echo "Error creating table Leaderboard: " . $conn->error;
+// }
 
 
-$sql = "CREATE TABLE OverallWinners (
-username  VARCHAR(30) PRIMARY KEY,
-score     INTEGER     NOT NULL
-)";
-if ($conn->query($sql) === TRUE) {
-    echo "Table OverallWinners created successfully\n";
-} else {
-    echo "Error creating table OverallWinners: " . $conn->error;
-}
-
-
-
-$sql = "CREATE TABLE TopGainers (
-username  VARCHAR(30) PRIMARY KEY,
-score     INTEGER     NOT NULL
-)";
-if ($conn->query($sql) === TRUE) {
-    echo "Table TopGainers created successfully\n";
-} else {
-    echo "Error creating table TopGainers: " . $conn->error;
-}
+// $sql = "CREATE TABLE OverallWinners (
+// username  VARCHAR(30) PRIMARY KEY,
+// score     INTEGER     NOT NULL
+// )";
+// if ($conn->query($sql) === TRUE) {
+//     echo "Table OverallWinners created successfully\n";
+// } else {
+//     echo "Error creating table OverallWinners: " . $conn->error;
+// }
 
 
 
-$sql = "CREATE TABLE TopLosers (
-username  VARCHAR(30) PRIMARY KEY,
-score     INTEGER     NOT NULL
-)";
-if ($conn->query($sql) === TRUE) {
-    echo "Table TopLosers created successfully\n";
-} else {
-    echo "Error creating table TopLosers: " . $conn->error;
-}
+// $sql = "CREATE TABLE TopGainers (
+// username  VARCHAR(30) PRIMARY KEY,
+// score     INTEGER     NOT NULL
+// )";
+// if ($conn->query($sql) === TRUE) {
+//     echo "Table TopGainers created successfully\n";
+// } else {
+//     echo "Error creating table TopGainers: " . $conn->error;
+// }
+
+
+
+// $sql = "CREATE TABLE TopLosers (
+// username  VARCHAR(30) PRIMARY KEY,
+// score     INTEGER     NOT NULL
+// )";
+// if ($conn->query($sql) === TRUE) {
+//     echo "Table TopLosers created successfully\n";
+// } else {
+//     echo "Error creating table TopLosers: " . $conn->error;
+// }
 
 
 
