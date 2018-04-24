@@ -159,7 +159,7 @@ echo $tableString2;
 
                     $avgVal = money_format('%i', $row["total_investment"] / $row["quantity_stocks"]);
 										if (pow($totalPos, 1/2) >= pow($totalNeg, 1/2)) {
-                    	$tableString .= "<tr><td>" . $row["ticker_symbol"] . "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td><td>" . "Good" . "</td></tr>";
+                    	$tableString .= "<tr><td>" . $row["ticker_symbol"] . "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td><td>" . "Good" . $totalPos. $totalNeg . "</td></tr>";
 										} else {
 											$tableString .= "<tr><td>" . $row["ticker_symbol"] . "</td><td>" . $row["quantity_stocks"]. "</td><td>" . money_format('%i', $row["total_investment"]) . "</td><td>" . $avgVal . "</td><td>" . "Bad" . "</td></tr>";
 										}
