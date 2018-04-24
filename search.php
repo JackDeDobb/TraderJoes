@@ -164,12 +164,22 @@
               var year = parseInt(day.substring(0, 4));
               var month = parseInt(day.substring(5, 7))-1;
               var day2 = parseInt(day.substring(8,10));
-							var time = day.substring(11);
-              //console.log("Year: "+year+" Day: "+day2+" Month"+month);
-              data.addRow([
-                {v: new Date(year, month, day2), f: (monthNames[month-1]+' '+day2.toString()+', '+year.toString())},
-                Number(info["Time Series (Daily)"][day]["4. close"])
-              ]);
+							var hour = parseInt(day.substring(11, 13));
+							var min = parseInt(day.substring(14,16));
+							var second = parseInt(day.substring(17));
+							var today = new Date();
+
+							var f_hour = hour, f_min = min.toString(), tod = "AM";
+							if(hour > 12) f_hour = hour - 12;
+							if(hour >= 12) tod = "PM";
+							if(min < 10) f_min = "0"+min.toString();
+
+							if(today.getDate() == day2 && today.getMonth() == month && today.getFullYear() == year){
+								data.addRow([
+									{v: new Date(year, month, day2, hour, min, second), f: (f_hour.toString()+":"+f_min+" "+tod)},
+									Number(info["Time Series (15min)"][day]["4. close"])
+								]);
+							}
             });
 
             var options = {
