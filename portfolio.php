@@ -126,7 +126,6 @@ echo $tableString2;
 											curl_setopt($ch, CURLOPT_POSTFIELDS, "text=" . $xml->channel->item[$i]->description);
 											curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 											$server_output = curl_exec ($ch);
-											echo $server_output;
 											$json = json_decode($server_output, true);
 											$totalPos += pow($json['probability']['pos'], 2);
 											$totalNeg += pow($json['probability']['neg'], 2);
